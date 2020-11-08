@@ -4,10 +4,12 @@ export interface IUser {
   email: string;
   password: string;
   salt: string;
+  userType: string;
 }
 
 export interface IUserInputDTO {
   name: string;
   email: string;
   password: string;
+  userType: string;
 }

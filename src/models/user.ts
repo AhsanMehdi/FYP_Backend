@@ -16,9 +16,17 @@ const User = new mongoose.Schema(
       index: true,
     },
 
+    
     password: String,
 
     salt: String,
+
+    
+    userType: {
+      type: String,
+      required: [true, 'Please enter user type'],
+      index: true,
+    },
 
     role: {
       type: String,
