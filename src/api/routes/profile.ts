@@ -79,6 +79,36 @@ route.put(
     }
   },
 );
+
+//////////////////////////////////////
+route.post(
+  '/donor',
+  celebrate({
+    body: Joi.object({
+
+      firstName: Joi.string().required(),
+      middleName: Joi.string().required(),
+      lastName:Joi.string().required(),
+      interestedDomain: Joi.string().required(),
+      cell: Joi.string().required(),
+      country: Joi.string().required(),
+      visibility: Joi.string().required(),
+      occupation: Joi.string().required()
+    }),
+  }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling NGO-Profile endpoint with body: %o', req.body );
+    try {
+      // const profileServiceInstance = Container.get(ProfileService);
+      // const { ngoProfile} = await profileServiceInstance.NgoProfile(req.body as INgoProfileInputDTO);
+      return res.status(201).json({  });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
   /**
    * @TODO Let's leave this as a place holder for now
    * The reason for a logout route could be deleting a 'push notification token'
