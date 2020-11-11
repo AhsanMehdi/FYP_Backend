@@ -3,6 +3,7 @@ import { Container } from 'typedi';
 import ProfileService from '../../services/profile';
 import { IUserInputDTO } from '../../interfaces/IUser';
 import { INgoProfileInputDTO } from '../../interfaces/INgoProfile';
+import { IDonorProfileInputDTO } from '../../interfaces/IDonorProfile';
 import middlewares from '../middlewares';
 import { celebrate, Joi } from 'celebrate';
 import { Logger } from 'winston';
@@ -73,6 +74,38 @@ route.put(
       const profileServiceInstance = Container.get(ProfileService);
       const { ngoProfile} = await profileServiceInstance.NgoProfileUpdate(req.body as INgoProfileInputDTO);
       return res.status(201).json({ ngoProfile });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
+
+////////////////////////////////////// Donor Profile post function
+route.post(
+  '/donor',
+  celebrate({
+    body: Joi.object({
+
+      firstName: Joi.string().required(),
+      middleName: Joi.string().required(),
+      lastName:Joi.string().required(),
+      dob:Joi.string().required(),
+      cellNumber: Joi.string().required(),
+      interestedDomain: Joi.string().required(),
+      cnic:Joi.string().required(),
+      country: Joi.string().required(),
+      visibility: Joi.string().required(),
+      occupation: Joi.string().required()
+    }),
+  }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling DONOR-Profile endpoint with body: %o', req.body );
+    try {
+       const profileServiceInstance = Container.get(ProfileService);
+       const { donorProfile} = await profileServiceInstance.DonorProfile(req.body as IDonorProfileInputDTO);
+      return res.status(201).json({ donorProfile });
     } catch (e) {
       logger.error('🔥 error: %o', e);
       return next(e);
