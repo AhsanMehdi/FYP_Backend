@@ -42,6 +42,7 @@ export default async ({ expressApp }) => {
     models: [
       userModel,
       ngoProfileModel,
+      donorProfileModel,
       // salaryModel,
       // whateverModel
     ],

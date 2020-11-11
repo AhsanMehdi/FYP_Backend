@@ -16,12 +16,12 @@ const DonorProfile = new mongoose.Schema(
     },
 
     lastName:{
-        type: Number,
+        type: String,
         index: true,
     },
 
-    completedProjects:{
-        type: Number,
+    dob:{
+        type: String,
         index: true,
     },
 
@@ -31,24 +31,18 @@ const DonorProfile = new mongoose.Schema(
         index: true,
     },
     
-    averageReceivedDonationYear:{
-        type: Number,
+    cellNumber:{
+        type: String,
         index: true,
     },
 
-    contactNumber: {
+    cnic: {
         type: String,
-        required: true, 
+        required: false, 
         index: true,
     },
 
     country: {
-        type: String,
-        required: true, 
-        index: true,
-    },
-
-    startDate: {
         type: String,
         required: true, 
         index: true,
@@ -60,7 +54,7 @@ const DonorProfile = new mongoose.Schema(
         index: true,
     },
 
-    registerationNumber: {
+    occupation: {
         type: String,
         required: true, 
         index: true,
