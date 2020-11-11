@@ -23,11 +23,17 @@ export default async ({ expressApp }) => {
     // Notice the require syntax and the '.default'
     model: require('../models/user').default,
   };
-
+/////////////////////////////// NGO Profile Model
   const ngoProfileModel = {
     name: 'ngoProfileModel',
     // Notice the require syntax and the '.default'
     model: require('../models/ngoprofile').default,
+  };
+/////////////////////////////// DONOR Profile Model
+  const donorProfileModel = {
+    name: 'donorProfileModel',
+    // Notice the require syntax and the '.default'
+    model: require('../models/donorprofile').default,
   };
 
   // It returns the agenda instance because it's needed in the subsequent loaders
