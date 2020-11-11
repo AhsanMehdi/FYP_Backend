@@ -1,28 +1,26 @@
 export interface IDonorProfile {
     _id: string;
-    nickName: string;
-    branchId: string;
-    totalBranches:number;
-    completedProjects: number;
+    firstName: string;
+    middleName: string;
+    lastName:string;
+    dob: string;
     interestedDomain: string;
-    averageReceivedDonationYear: number;
-    contactNumber: string;
+    cellNumber: string;
+    cnic: string;
     country: string;
-    startDate: string;
     visibility: string;
-    registerationNumber: string;
+    occupation: string;
   }
   
   export interface IDonorProfileInputDTO {
-    nickName: string;
-    branchId: string;
-    totalBranches:number;
-    completedProjects: number;
+    firstName: string;
+    middleName: string;
+    lastName:string;
+    dob: string;
     interestedDomain: string;
-    averageReceivedDonationYear: number;
-    contactNumber: string;
+    cellNumber: string;
+    cnic: string;
     country: string;
-    startDate: string;
     visibility: string;
-    registerationNumber: string;
+    occupation: string;
   }
