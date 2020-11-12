@@ -3,6 +3,9 @@ import auth from './routes/auth';
 import user from './routes/user';
 import agendash from './routes/agendash';
 import profile from './routes/profile';
+import project from './routes/project';
+
+
 
 // guaranteed to get dependencies
 export default () => {
@@ -11,6 +14,7 @@ export default () => {
 	user(app);
 	agendash(app);
 	profile(app);
+	project(app);
 
 
 	return app
