@@ -14,38 +14,61 @@ export default (app: Router) => {
 
 
 
-  // custom API to edit profile page of ngo
+  // custom API to create project
   route.post(
-    '/createProject',
+    '/',
     celebrate({
       body: Joi.object({
 
-        nickName: Joi.string().required(),
-        branchId: Joi.string().required(),
-        totalBranches:Joi.number().required(),
-        completedProjects: Joi.number().required(),
-        interestedDomain: Joi.string().required(),
-        averageReceivedDonationYear: Joi.number().required(),
-        contactNumber: Joi.string().required(),
+        tittle: Joi.string().required(),
+        projectType: Joi.string().required(),
+        estimatedBudget:Joi.number().required(),
+        totalDonation: Joi.number().required(),
+        collectedDonation: Joi.number().required(),
+        descriptionStory: Joi.string().required(),
+        objective: Joi.string().required(),
         country: Joi.string().required(),
-        startDate: Joi.string().required(),
+        expectedEndDate: Joi.string().required(),
         visibility: Joi.string().required(),
-        registerationNumber: Joi.string().required()
+        receivedDonationArea: Joi.string().required(),
+        currentExpenses: Joi.number().required(),
+        startDate: Joi.string().required(),
+        RegisterationNumber: Joi.string().required(),
+        totalDonors: Joi.number().required(),
+        visibleDonors: Joi.string().required()
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
       const logger:Logger = Container.get('logger');
-      logger.debug('Calling NGO-Profile endpoint with body: %o', req.body );
+      logger.debug('Calling Project endpoint with body: %o', req.body );
       try {
-        const profileServiceInstance = Container.get(ProfileService);
-        const { ngoProfile} = await profileServiceInstance.NgoProfile(req.body as INgoProfileInputDTO);
-        return res.status(201).json({ ngoProfile });
+        const projectServiceInstance = Container.get(ProjectService);
+        const { project} = await projectServiceInstance.CreateProject(req.body as IProjectInputDTO);
+        return res.status(201).json({ project });
       } catch (e) {
         logger.error('🔥 error: %o', e);
         return next(e);
       }
     },
   );
+
+    // custom API to create project
+    route.get(
+        '/',
+        async (req: Request, res: Response, next: NextFunction) => {
+          const logger:Logger = Container.get('logger');
+          logger.debug('Calling Project endpoint with body: %o', req.body );
+          try {
+            const projectServiceInstance = Container.get(ProjectService);
+            const { projects} = await projectServiceInstance.GetProjects();
+            return res.status(201).json({ projects });
+          } catch (e) {
+            logger.error('🔥 error: %o', e);
+            return next(e);
+          }
+        },
+      );
+    
 
 
 

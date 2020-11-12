@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { type } from 'os';
 
 
-const DonorProfile = new mongoose.Schema(
+const Project = new mongoose.Schema(
   {
     tittle: {
       type: String,
