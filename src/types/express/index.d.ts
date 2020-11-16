@@ -3,6 +3,8 @@ import { IUser } from '../../interfaces/IUser';
 import { INgoProfile } from '../../interfaces/INgoProfile';
 import { IDonorProfile } from '../../interfaces/IDonorProfile';
 import { IProject } from '../../interfaces/IProject';
+import { IChatBox } from '../../interfaces/IChatBox';
+
 
 
 declare global {
@@ -18,6 +20,8 @@ declare global {
     export type NgoProfileModel = Model<INgoProfile & Document>;
     export type DonorProfileModel = Model<IDonorProfile & Document>;
     export type ProjectModel = Model<IProject & Document>;
+    export type ChatBoxModel = Model<IChatBox & Document>;
+
 
   }
 }
