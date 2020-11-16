@@ -22,9 +22,9 @@ export default (app: Router) => {
 
         nickName: Joi.string().required(),
         subject: Joi.string().required(),
-        descriptionStory:Joi.number().required(),
-        objective: Joi.number().required(),
-        country: Joi.number().required(),
+        descriptionStory:Joi.string().required(),
+        objective: Joi.string().required(),
+        country: Joi.string().required(),
         status: Joi.string().required(),
         visibility: Joi.string().required(),
         dateOfCreation: Joi.string().required()
