@@ -1,4 +1,4 @@
-export interface IUserCommunication {
+export interface IChatBox {
     _id: string;
     subject: string;
     message: string;
@@ -7,7 +7,7 @@ export interface IUserCommunication {
 
   }
   
-  export interface IUserCommunicationInputDTO {
+  export interface IChatBoxInputDTO {
     subject: string;
     message: string;
     dateOfCommunication:string;
