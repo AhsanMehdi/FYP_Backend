@@ -41,6 +41,12 @@ export default async ({ expressApp }) => {
     // Notice the require syntax and the '.default'
     model: require('../models/project').default,
   };
+  ///////////////////////////// CAMPAIGN MODEL
+  const campaignModel = {
+    name: 'campaignModel',
+    // Notice the require syntax and the '.default'
+    model: require('../models/campaign').default,
+  };
 
   ////////////////////////////// CAMPAIGN Model
   const chatBoxModel = {
@@ -57,6 +63,7 @@ export default async ({ expressApp }) => {
       ngoProfileModel,
       donorProfileModel,
       projectModel,
+      campaignModel,
       chatBoxModel,
 
       // salaryModel,
