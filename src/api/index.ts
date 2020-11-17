@@ -4,6 +4,8 @@ import user from './routes/user';
 import agendash from './routes/agendash';
 import profile from './routes/profile';
 import project from './routes/project';
+import chatBox from './routes/chatbox';
+
 
 
 
@@ -15,6 +17,7 @@ export default () => {
 	agendash(app);
 	profile(app);
 	project(app);
+	chatBox(app);
 
 
 	return app
