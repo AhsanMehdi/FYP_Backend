@@ -5,6 +5,7 @@ import agendash from './routes/agendash';
 import profile from './routes/profile';
 import project from './routes/project';
 import campaign from './routes/campaign';
+import chatBox from './routes/chatbox';
 
 
 
@@ -18,6 +19,7 @@ export default () => {
 	profile(app);
 	project(app);
 	campaign(app);
+	chatBox(app);
 
 
 	return app
