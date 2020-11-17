@@ -15,14 +15,19 @@ const ChatBox = new mongoose.Schema(
       index: true,
     },
 
-    dateOfCommunication:{
+    createdAt:{
         type: String,
         index: true,
     },
 
-    remainderStatus:{
-        type: String,
-        index: true,
+    to:{
+      type: String,
+      index: true,
+    },
+
+    from:{
+    type: String,
+    index: true,
     },
 
 

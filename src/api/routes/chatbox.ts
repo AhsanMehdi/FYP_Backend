@@ -10,7 +10,7 @@ import { Logger } from 'winston';
 const route = Router();
 
 export default (app: Router) => {
-  app.use('/sendmessage', route);
+  app.use('/message', route);
 
 
 
@@ -22,8 +22,11 @@ export default (app: Router) => {
 
         subject: Joi.string().required(),
         message: Joi.string().required(),
-        dateOfCommunication:Joi.string().required(),
-        remainderStatus: Joi.string().required()
+        createdAt:Joi.string().required(),
+        to: Joi.string().required(),
+        from: Joi.string().required()
+
+
      
       }),
     }),
