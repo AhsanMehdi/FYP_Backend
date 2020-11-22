@@ -17,6 +17,7 @@ export default (app: Router) => {
   // custom API to create chatbox
   route.post(
     '/',
+    middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
       body: Joi.object({
 
@@ -24,13 +25,13 @@ export default (app: Router) => {
         message: Joi.string().required(),
         createdAt:Joi.string().required(),
         to: Joi.string().required(),
-        from: Joi.string().required()
-
-
      
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
+
+      let user = req.currentUser ;
+      req.body.from = user._id
       const logger:Logger = Container.get('logger');
       logger.debug('Calling ChatBox endpoint with body: %o', req.body );
       try {
