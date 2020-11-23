@@ -8,7 +8,7 @@ export interface ICampaign {
     status: string;
     visibility: string;
     dateOfCreation: string;
-   
+    userId: string;
   }
   
   export interface ICampaignInputDTO {
@@ -21,5 +21,6 @@ export interface ICampaign {
     status: string;
     visibility: string;
     dateOfCreation: string;
+    userId: string;
   }
 

@@ -17,6 +17,7 @@ export default (app: Router) => {
   // custom API to create project
   route.post(
     '/',
+    middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
       body: Joi.object({
 
@@ -42,6 +43,8 @@ export default (app: Router) => {
       const logger:Logger = Container.get('logger');
       logger.debug('Calling Project endpoint with body: %o', req.body );
       try {
+        let user = req.currentUser ;
+        req.body.userId = user._id ;
         const projectServiceInstance = Container.get(ProjectService);
         const { project} = await projectServiceInstance.CreateProject(req.body as IProjectInputDTO);
         return res.status(201).json({ project });

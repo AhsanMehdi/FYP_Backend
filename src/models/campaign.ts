@@ -47,6 +47,11 @@ const Campaign = new mongoose.Schema(
         required: true, 
         index: true,
     },
+    userId: {
+      type: String,
+      required: [true, 'Please enter a nick name name'],
+      index: true,
+  },
 
 /// role of user they have to perform
     role: {

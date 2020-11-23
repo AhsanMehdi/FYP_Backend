@@ -59,6 +59,12 @@ const DonorProfile = new mongoose.Schema(
         required: true, 
         index: true,
     },
+    userId:{
+      type: String,
+      required: true, 
+      index: true,
+
+    },
 
 /// role of user they have to perform
     role: {

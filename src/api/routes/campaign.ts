@@ -17,6 +17,7 @@ export default (app: Router) => {
   // custom API to create campaign
   route.post(
     '/',
+    middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
       body: Joi.object({
 
@@ -35,6 +36,8 @@ export default (app: Router) => {
       const logger:Logger = Container.get('logger');
       logger.debug('Calling Campaign endpoint with body: %o', req.body );
       try {
+        let user = req.currentUser ;
+        req.body.userId = user._id ;
         const campaignServiceInstance = Container.get(CampaignService);
         const { campaign} = await campaignServiceInstance.CreateCampaign(req.body as ICampaignInputDTO);
         return res.status(201).json({ campaign });

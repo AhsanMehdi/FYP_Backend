@@ -81,6 +81,12 @@ const Project = new mongoose.Schema(
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
+    userId: {
+        type: String,
+        required: [true, 'Please enter a nick name name'],
+        index: true,
+    },
+
 
 
 

@@ -16,6 +16,7 @@ export interface IProject {
     RegisterationNumber: string;
     totalDonors: string;
     visibleDonors: string;
+    userId: string;
     
   }
   
@@ -36,4 +37,5 @@ export interface IProject {
     RegisterationNumber: string;
     totalDonors: string;
     visibleDonors: string;
+    userId: string;
   }

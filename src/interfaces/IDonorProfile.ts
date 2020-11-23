@@ -10,6 +10,7 @@ export interface IDonorProfile {
     country: string;
     visibility: string;
     occupation: string;
+    userId: string;
   }
   
   export interface IDonorProfileInputDTO {
@@ -23,4 +24,5 @@ export interface IDonorProfile {
     country: string;
     visibility: string;
     occupation: string;
+    userId: string;
   }

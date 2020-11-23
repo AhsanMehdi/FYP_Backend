@@ -31,7 +31,7 @@ export default (app: Router) => {
     async (req: Request, res: Response, next: NextFunction) => {
 
       let user = req.currentUser ;
-      req.body.from = user._id
+      req.body.from = user._id ;
       const logger:Logger = Container.get('logger');
       logger.debug('Calling ChatBox endpoint with body: %o', req.body );
       try {

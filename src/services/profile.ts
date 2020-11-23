@@ -87,9 +87,9 @@ export default class NgoProfileService {
       this.logger.silly('ngoProfile');
       this.logger.silly('Creating ngo profile db record');
   
-     let nickName = ngoProfileInputDTO.nickName
+     let userId = ngoProfileInputDTO.userId;
 
-      const ngoProfileRecord = await this.ngoProfileModel.update({nickName  },{
+      const ngoProfileRecord = await this.ngoProfileModel.update({userId  },{
         ...ngoProfileInputDTO
       });
       this.logger.silly('Generating JWT');

@@ -18,6 +18,7 @@ export default (app: Router) => {
   // custom API to edit profile page of ngo
   route.post(
     '/ngo',
+    middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
       body: Joi.object({
 
@@ -37,7 +38,9 @@ export default (app: Router) => {
     async (req: Request, res: Response, next: NextFunction) => {
       const logger:Logger = Container.get('logger');
       logger.debug('Calling NGO-Profile endpoint with body: %o', req.body );
-      try {
+      try { 
+        let user = req.currentUser ;
+        req.body.userId = user._id ;
         const profileServiceInstance = Container.get(ProfileService);
         const { ngoProfile} = await profileServiceInstance.NgoProfile(req.body as INgoProfileInputDTO);
         return res.status(201).json({ ngoProfile });
@@ -51,6 +54,7 @@ export default (app: Router) => {
 // update ngo profile
 route.put(
   '/ngo',
+  middlewares.isAuth, middlewares.attachCurrentUser,
   celebrate({
     body: Joi.object({
 
@@ -71,6 +75,8 @@ route.put(
     const logger:Logger = Container.get('logger');
     logger.debug('Calling NGO-Profile endpoint with body: %o', req.body );
     try {
+       let user = req.currentUser ;
+        req.body.userId = user._id ;
       const profileServiceInstance = Container.get(ProfileService);
       const { ngoProfile} = await profileServiceInstance.NgoProfileUpdate(req.body as INgoProfileInputDTO);
       return res.status(201).json({ ngoProfile });
@@ -84,6 +90,7 @@ route.put(
 ////////////////////////////////////// Donor Profile post function
 route.post(
   '/donor',
+  middlewares.isAuth, middlewares.attachCurrentUser,
   celebrate({
     body: Joi.object({
 
@@ -102,7 +109,9 @@ route.post(
   async (req: Request, res: Response, next: NextFunction) => {
     const logger:Logger = Container.get('logger');
     logger.debug('Calling DONOR-Profile endpoint with body: %o', req.body );
-    try {
+    try { 
+        let user = req.currentUser ;
+        req.body.userId = user._id ;
        const profileServiceInstance = Container.get(ProfileService);
        const { donorProfile} = await profileServiceInstance.DonorProfile(req.body as IDonorProfileInputDTO);
       return res.status(201).json({ donorProfile });
