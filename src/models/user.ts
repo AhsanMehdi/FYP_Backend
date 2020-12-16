@@ -24,7 +24,7 @@ const User = new mongoose.Schema(
     
     userType: {
       type: String,
-      required: [true, 'Please enter user type'],
+      required: [false, 'Please enter user type'],
       index: true,
     },
 

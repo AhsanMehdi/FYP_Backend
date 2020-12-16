@@ -48,22 +48,22 @@ export default (app: Router) => {
     },
   );
 
-    // // custom API to get campaign
-    // route.get(
-    //     '/',
-    //     async (req: Request, res: Response, next: NextFunction) => {
-    //       const logger:Logger = Container.get('logger');
-    //       logger.debug('Calling Project endpoint with body: %o', req.body );
-    //       try {
-    //         const projectServiceInstance = Container.get(ProjectService);
-    //         const { projects} = await projectServiceInstance.GetProjects();
-    //         return res.status(201).json({ projects });
-    //       } catch (e) {
-    //         logger.error('🔥 error: %o', e);
-    //         return next(e);
-    //       }
-    //     },
-    //   );
+    // custom API to get campaign
+    route.get(
+        '/',
+        async (req: Request, res: Response, next: NextFunction) => {
+          const logger:Logger = Container.get('logger');
+          logger.debug('Calling Campaign endpoint with body: %o', req.body );
+          try {
+            const campaignServiceInstance = Container.get(CampaignService);
+            const { campaigns} = await campaignServiceInstance.GetCampaigns();
+            return res.status(201).json({ campaigns });
+          } catch (e) {
+            logger.error('🔥 error: %o', e);
+            return next(e);
+          }
+        },
+      );
     
 
 

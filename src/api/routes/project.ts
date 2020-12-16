@@ -36,7 +36,8 @@ export default (app: Router) => {
         startDate: Joi.string().required(),
         RegisterationNumber: Joi.string().required(),
         totalDonors: Joi.number().required(),
-        visibleDonors: Joi.string().required()
+        visibleDonors: Joi.string().required(),
+        imageUrl: Joi.string().required() 
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
@@ -55,7 +56,7 @@ export default (app: Router) => {
     },
   );
 
-    // custom API to create project
+    // custom API to get project
     route.get(
         '/',
         async (req: Request, res: Response, next: NextFunction) => {
