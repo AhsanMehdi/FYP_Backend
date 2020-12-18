@@ -72,6 +72,25 @@ export default (app: Router) => {
           }
         },
       );
+
+          // custom API to get a specific project
+    route.get(
+      '/:id',
+      async (req: Request, res: Response, next: NextFunction) => {
+        const logger:Logger = Container.get('logger');
+        logger.debug('Calling Project endpoint with body: %o', req.body );
+        try {
+
+          var id = req.params.id;
+          const projectServiceInstance = Container.get(ProjectService);
+          const { project} = await projectServiceInstance.GetProjectById(id);
+          return res.status(201).json({ project });
+        } catch (e) {
+          logger.error('🔥 error: %o', e);
+          return next(e);
+        }
+      },
+    );
     
 
 
