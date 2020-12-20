@@ -6,6 +6,7 @@ import profile from './routes/profile';
 import project from './routes/project';
 import campaign from './routes/campaign';
 import chatBox from './routes/chatbox';
+import photos from './routes/photos';
 
 
 
@@ -20,6 +21,7 @@ export default () => {
 	project(app);
 	campaign(app);
 	chatBox(app);
+	photos(app);
 
 
 	return app
