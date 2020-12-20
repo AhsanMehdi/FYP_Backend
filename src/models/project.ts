@@ -42,9 +42,7 @@ const Project = new mongoose.Schema(
         index: true,
     },
     receivedDonationArea: {
-        type: String,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
+        type: String
     },
     currentExpenses: {
         type: Number,

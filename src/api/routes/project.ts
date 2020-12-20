@@ -31,7 +31,6 @@ export default (app: Router) => {
         country: Joi.string().required(),
         expectedEndDate: Joi.string().required(),
         visibility: Joi.string().required(),
-        receivedDonationArea: Joi.string().required(),
         currentExpenses: Joi.number().required(),
         startDate: Joi.string().required(),
         RegisterationNumber: Joi.string().required(),
