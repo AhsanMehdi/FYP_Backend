@@ -8,6 +8,7 @@ import path from 'path';
 import Loki from 'lokijs';
 const ejs = require('ejs');
 const fs = require('fs');
+import config from '../../config/index';
 
 import { imageFilter, loadCollection, cleanFolder } from '../../utils';
 const DB_NAME = 'db.json';
@@ -50,7 +51,9 @@ export default (app: Router) => {
       let data = [].concat(col.insert(req.files));
 
       db.saveDatabase();
+
       res.send(data.map(x => ({ id: x.$loki, fileName: x.filename, originalName: x.originalname })));
+      return ;
     } catch (err) {
       res.sendStatus(400);
     }
