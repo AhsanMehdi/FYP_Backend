@@ -55,7 +55,7 @@ export default (app: Router) => {
     },
   );
 
-    // custom API to get project
+    // custom API to get all project
     route.get(
         '/',
         async (req: Request, res: Response, next: NextFunction) => {

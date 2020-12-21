@@ -52,6 +52,11 @@ const Campaign = new mongoose.Schema(
       required: [true, 'Please enter a nick name name'],
       index: true,
   },
+  imageUrl: {
+    type: String,
+    required: [true, 'Please enter a nick name name'],
+    index: true,
+},
 
 /// role of user they have to perform
     role: {

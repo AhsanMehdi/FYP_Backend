@@ -51,6 +51,24 @@ export default (app: Router) => {
     },
   );
 
+
+    // custom API to get all Ngos
+    route.get(
+      '/ngo',
+      async (req: Request, res: Response, next: NextFunction) => {
+        const logger:Logger = Container.get('logger');
+        logger.debug('Calling Project endpoint with body: %o', req.body );
+        try {
+          const profileServiceInstance = Container.get(ProfileService);
+          const { ngoProfile} = await profileServiceInstance.GetNgos();
+          return res.status(201).json({ ngoProfile });
+        } catch (e) {
+          logger.error('🔥 error: %o', e);
+          return next(e);
+        }
+      },
+    );
+
 // update ngo profile
 route.put(
   '/ngo',
