@@ -9,6 +9,7 @@ const imageFilter = function (req, file, cb) {
     cb(null, true);
 };
 
+
 const loadCollection = function (colName, db: Loki): Promise<Collection<any>> {
     return new Promise(resolve => {
         db.loadDatabase({}, () => {

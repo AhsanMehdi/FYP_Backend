@@ -1,7 +1,15 @@
+/* the layer under interface 
+   basically a document parameters
+    WHY THIS :: containing all the parameters of the donor profile
+*/
+
 import { IDonorProfile } from '../interfaces/IDonorProfile';
 import mongoose from 'mongoose';
 
-
+/* document structure 
+   one by one parameters 
+   types and constraints
+*/
 const DonorProfile = new mongoose.Schema(
   {
     firstName: {
@@ -74,5 +82,5 @@ const DonorProfile = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
-export default mongoose.model<IDonorProfile & mongoose.Document>('DONORProfile', DonorProfile);
+//// link with interface
+export default mongoose.model<IDonorProfile & mongoose.Document>('DONORProfile', DonorProfile);  

@@ -1,7 +1,14 @@
+/* layer under the interface
+   a schema of document
+   WHY THIS :: containing all the parameters of the project
+*/
 import { IProject } from '../interfaces/IProject';
 import mongoose from 'mongoose';
 import { type } from 'os';
-
+/* document structure 
+   one by one parameters 
+   types and constraints
+*/
 
 const Project = new mongoose.Schema(
   {
@@ -96,16 +103,6 @@ const Project = new mongoose.Schema(
     },
 
 
-
-
-
-
-
-
-
-
-   
-
 /// role of user they have to perform
     role: {
       type: String,
@@ -114,5 +111,5 @@ const Project = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
+//// link with Project Interface
 export default mongoose.model<IProject & mongoose.Document>('PROJECT', Project);

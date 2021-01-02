@@ -1,6 +1,15 @@
+/*
+     This is basically a model of campaign i-e
+     attributes that campaign have
+
+*/
+
 import { ICampaign } from '../interfaces/ICampaign';
 import mongoose from 'mongoose';
-
+/* document structure 
+   one by one parameters 
+   types and constraints
+*/
 
 const Campaign = new mongoose.Schema(
   {

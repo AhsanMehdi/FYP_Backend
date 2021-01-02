@@ -1,12 +1,19 @@
+/*
+    Chatbox model layer under part of the interface of chatbox
+*/
+
 import { IChatBox } from '../interfaces/IChatBox';
 import mongoose from 'mongoose';
 
-
+/* document structure 
+   one by one parameters 
+   types and constraints
+*/
 const ChatBox = new mongoose.Schema(
   {
     subject: {
       type: String,
-      required: [true, 'Please enter a nick name name'],
+      required: [true, 'Please enter subject '],
       index: true,
     },
 
@@ -39,5 +46,5 @@ const ChatBox = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
+//// link with interface
 export default mongoose.model<IChatBox & mongoose.Document>('CHATBox', ChatBox);

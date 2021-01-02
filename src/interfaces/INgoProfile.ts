@@ -12,6 +12,7 @@ export interface INgoProfile {
     visibility: string;
     registerationNumber: string;
     userId: string;
+    
   }
   
   export interface INgoProfileInputDTO {
@@ -27,4 +28,5 @@ export interface INgoProfile {
     visibility: string;
     registerationNumber: string;
     userId: string;
+ 
   }

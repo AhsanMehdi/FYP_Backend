@@ -1,6 +1,12 @@
+/* layer under the layers of 
+   all attributes of signin and signup  
+*/
 import { IUser } from '../interfaces/IUser';
 import mongoose from 'mongoose';
+/*
+   the schema parameters
 
+*/
 const User = new mongoose.Schema(
   {
     name: {
@@ -35,5 +41,5 @@ const User = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
+//// containing the signin signup attributes of user
 export default mongoose.model<IUser & mongoose.Document>('User', User);

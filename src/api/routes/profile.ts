@@ -32,7 +32,8 @@ export default (app: Router) => {
         country: Joi.string().required(),
         startDate: Joi.string().required(),
         visibility: Joi.string().required(),
-        registerationNumber: Joi.string().required()
+        registerationNumber: Joi.string().required(),
+        imageUrl: Joi.string()
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {

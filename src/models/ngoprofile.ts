@@ -1,6 +1,13 @@
+/* layer under the interface
+   a schema of document
+   WHY THIS :: containing all the parameters of the ngo profile
+*/
 import { INgoProfile } from '../interfaces/INgoProfile';
 import mongoose from 'mongoose';
-
+/* document structure 
+   one by one parameters 
+   types and constraints
+*/
 
 const NgoProfile = new mongoose.Schema(
   {
@@ -71,6 +78,11 @@ const NgoProfile = new mongoose.Schema(
       index: true,
 
     },
+    imageUrl: {
+      type: String,
+      required: [true, 'Please enter a nick name name'],
+      index: true,
+  },
 
 /// role of user they have to perform
     role: {
@@ -80,5 +92,5 @@ const NgoProfile = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
+//// link with interface
 export default mongoose.model<INgoProfile & mongoose.Document>('NGOProfile', NgoProfile);
