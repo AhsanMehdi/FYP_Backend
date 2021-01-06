@@ -17,7 +17,7 @@ export default (app: Router) => {
 
   // custom API to edit profile page of ngo
   route.post(
-    '/ngo',
+    '/ngo',        /* as here it is profile so we have sub route of ngo */
     middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
       body: Joi.object({
@@ -36,14 +36,15 @@ export default (app: Router) => {
         imageUrl: Joi.string()
       }),
     }),
+    /* responsible to get values*/
     async (req: Request, res: Response, next: NextFunction) => {
       const logger:Logger = Container.get('logger');
       logger.debug('Calling NGO-Profile endpoint with body: %o', req.body );
       try { 
         let user = req.currentUser ;
         req.body.userId = user._id ;
-        const profileServiceInstance = Container.get(ProfileService);
-        const { ngoProfile} = await profileServiceInstance.NgoProfile(req.body as INgoProfileInputDTO);
+        const profileServiceInstance = Container.get(ProfileService); /* calling the service function */
+        const { ngoProfile} = await profileServiceInstance.NgoProfile(req.body as INgoProfileInputDTO); // get input from interface to then interface function
         return res.status(201).json({ ngoProfile });
       } catch (e) {
         logger.error('🔥 error: %o', e);

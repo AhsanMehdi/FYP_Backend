@@ -16,10 +16,10 @@ export default (app: Router) => {
 
   // custom API to create campaign
   route.post(
-    '/',
+    '/',   //// next sub route
     middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
-      body: Joi.object({
+      body: Joi.object({           //// postman verified
 
         nickName: Joi.string().required(),
         subject: Joi.string().required(),

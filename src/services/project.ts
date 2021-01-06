@@ -17,7 +17,7 @@ export default class ProjectService {
   ) {
   }
 
-  public async CreateProject(projectInputDTO: IProjectInputDTO): Promise<{ project: IProject }> {
+  public async CreateProject(projectInputDTO: IProjectInputDTO): Promise<{ project: IProject }> { /* project interface*/
     try {
   
       /**
@@ -54,7 +54,7 @@ export default class ProjectService {
        * that transforms data from layer to layer
        * but that's too over-engineering for now
        */
-      const project = projectRecord.toObject();
+      const project = projectRecord.toObject(); 
       return { project };
     } catch (e) {
       this.logger.error(e);

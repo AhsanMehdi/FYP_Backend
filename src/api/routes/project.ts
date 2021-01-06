@@ -16,11 +16,11 @@ export default (app: Router) => {
 
   // custom API to create project
   route.post(
-    '/',
+    '/',  /* the sub path of */
     middlewares.isAuth, middlewares.attachCurrentUser,
     celebrate({
       body: Joi.object({
-
+                              /* verified by postman*/
         tittle: Joi.string().required(),
         projectType: Joi.string().required(),
         estimatedBudget:Joi.number().required(),
@@ -63,7 +63,7 @@ export default (app: Router) => {
           logger.debug('Calling Project endpoint with body: %o', req.body );
           try {
             const projectServiceInstance = Container.get(ProjectService);
-            const { projects} = await projectServiceInstance.GetProjects();
+            const { projects} = await projectServiceInstance.GetProjects(); /* call move to service function via interface*/
             return res.status(201).json({ projects });
           } catch (e) {
             logger.error('🔥 error: %o', e);

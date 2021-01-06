@@ -1,3 +1,4 @@
+ /* call by routes and services*/
 export interface IProject {
     _id: string;
     tittle: string;
@@ -16,10 +17,10 @@ export interface IProject {
     RegisterationNumber: string;
     totalDonors: string;
     visibleDonors: string;
-    userId: string;
+    userId: string; // for user authentication
     
   }
-  
+   /* this is only to get input and map into the database*/
   export interface IProjectInputDTO {
     tittle: string;
     projectType: string;

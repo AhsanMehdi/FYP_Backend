@@ -16,8 +16,8 @@ const NgoProfile = new mongoose.Schema(
       required: [true, 'Please enter a nick name name'],
       index: true,
     },
-
-    branchId: {
+/*      Has been excludedd for runtime 
+     branchId: {
       type: String,
       index: true,
     },
@@ -25,7 +25,8 @@ const NgoProfile = new mongoose.Schema(
     totalBranches:{
         type: Number,
         index: true,
-    },
+    },*/
+
 
     completedProjects:{
         type: Number,

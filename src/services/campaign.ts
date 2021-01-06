@@ -39,7 +39,7 @@ export default class CampaignService {
       this.logger.silly('campaign');
       this.logger.silly('Creating campaign db record');
       const campaignRecord = await this.campaignModel.create({
-        ...campaignInputDTO
+        ...campaignInputDTO  /* link with interface of campaign*/
       });
       this.logger.silly('Generating JWT');
   
@@ -54,7 +54,7 @@ export default class CampaignService {
        * that transforms data from layer to layer
        * but that's too over-engineering for now
        */
-      const campaign = campaignRecord.toObject();
+      const campaign = campaignRecord.toObject(); /* campaign object*/
       return { campaign };
     } catch (e) {
       this.logger.error(e);
@@ -63,8 +63,8 @@ export default class CampaignService {
   }
 
   
-  public async GetCampaigns( ): Promise<{ campaigns: ICampaign[] }> {
-    try {
+  public async GetCampaigns( ): Promise<{ campaigns: ICampaign[] }> {   /* array of documents of campaigns*/
+    try {      
   
       /**
        * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.

@@ -16,7 +16,7 @@ export default (app: Router) => {
   route.post(
     '/signup',
     celebrate({
-      body: Joi.object({
+      body: Joi.object({        //// postman verified
         name: Joi.string().required(),
         email: Joi.string().required(),
         password: Joi.string().required(),

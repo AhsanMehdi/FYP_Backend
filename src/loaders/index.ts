@@ -48,7 +48,7 @@ export default async ({ expressApp }) => {
     model: require('../models/campaign').default,
   };
 
-  ////////////////////////////// CAMPAIGN Model
+  ////////////////////////////// CAHTBOX Model
   const chatBoxModel = {
     name: 'chatBoxModel',
     // Notice the require syntax and the '.default'

@@ -16,8 +16,8 @@ export default (app: Router) => {
 
   // custom API to create chatbox
   route.post(
-    '/',
-    middlewares.isAuth, middlewares.attachCurrentUser,
+    '/',            //// postman verified this slash contains that what to next sub route
+    middlewares.isAuth, middlewares.attachCurrentUser, /* checking if corresponding user is here*/ 
     celebrate({
       body: Joi.object({
 
@@ -44,25 +44,6 @@ export default (app: Router) => {
       }
     },
   );
-
-    // // custom API to create project
-    // route.get(
-    //     '/',
-    //     async (req: Request, res: Response, next: NextFunction) => {
-    //       const logger:Logger = Container.get('logger');
-    //       logger.debug('Calling Project endpoint with body: %o', req.body );
-    //       try {
-    //         const projectServiceInstance = Container.get(ProjectService);
-    //         const { projects} = await projectServiceInstance.GetProjects();
-    //         return res.status(201).json({ projects });
-    //       } catch (e) {
-    //         logger.error('🔥 error: %o', e);
-    //         return next(e);
-    //       }
-    //     },
-    //   );
-    
-
 
 
 
