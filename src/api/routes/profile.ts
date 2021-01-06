@@ -171,6 +171,23 @@ route.put (
     }
   },
 )
+
+    // custom API to get all Donors
+    route.get(
+      '/donor',
+      async (req: Request, res: Response, next: NextFunction) => {
+        const logger:Logger = Container.get('logger');
+        logger.debug('Calling Donor endpoint with body: %o', req.body );
+        try {
+          const profileServiceInstance = Container.get(ProfileService);
+          const { donorProfile} = await profileServiceInstance.GetDonors();
+          return res.status(201).json({ donorProfile });
+        } catch (e) {
+          logger.error('🔥 error: %o', e);
+          return next(e);
+        }
+      },
+    );
   /**
    * @TODO Let's leave this as a place holder for now
    * The reason for a logout route could be deleting a 'push notification token'
