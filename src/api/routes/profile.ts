@@ -23,8 +23,6 @@ export default (app: Router) => {
       body: Joi.object({
 
         nickName: Joi.string().required(),
-        branchId: Joi.string().required(),
-        totalBranches:Joi.number().required(),
         completedProjects: Joi.number().required(),
         interestedDomain: Joi.string().required(),
         averageReceivedDonationYear: Joi.number().required(),
@@ -79,8 +77,6 @@ route.put(
     body: Joi.object({
 
       nickName: Joi.string().required(),
-      branchId: Joi.string().required(),
-      totalBranches:Joi.number().required(),
       completedProjects: Joi.number().required(),
       interestedDomain: Joi.string().required(),
       averageReceivedDonationYear: Joi.number().required(),
@@ -141,6 +137,40 @@ route.post(
     }
   },
 );
+
+route.put (
+  '/donor',
+  middlewares.isAuth, middlewares.attachCurrentUser,
+  celebrate({
+    body: Joi.object({
+
+      firstName: Joi.string().required(),
+      middleName: Joi.string().required(),
+      lastName:Joi.string().required(),
+      dob:Joi.string().required(),
+      cellNumber: Joi.string().required(),
+      interestedDomain: Joi.string().required(),
+      cnic:Joi.string().required(),
+      country: Joi.string().required(),
+      visibility: Joi.string().required(),
+      occupation: Joi.string().required()
+    }),
+  }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling DONOR-Profile endpoint with body: %o', req.body );
+    try { 
+        let user = req.currentUser ;
+        req.body.userId = user._id ;
+       const profileServiceInstance = Container.get(ProfileService);
+       const { donorProfile} = await profileServiceInstance.DonorProfileUpdate(req.body as IDonorProfileInputDTO);
+      return res.status(201).json({ donorProfile });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+)
   /**
    * @TODO Let's leave this as a place holder for now
    * The reason for a logout route could be deleting a 'push notification token'

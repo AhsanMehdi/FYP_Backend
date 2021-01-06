@@ -2,8 +2,6 @@
 export interface INgoProfile {
     _id: string;
     nickName: string;
-    branchId: string;
-    totalBranches:number;
     completedProjects: number;
     interestedDomain: string;
     averageReceivedDonationYear: number;
@@ -18,8 +16,6 @@ export interface INgoProfile {
    /* this is only to get input and map into the database*/
   export interface INgoProfileInputDTO {
     nickName: string;
-    branchId: string;
-    totalBranches:number;
     completedProjects: number;
     interestedDomain: string;
     averageReceivedDonationYear: number;
