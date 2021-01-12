@@ -7,6 +7,7 @@ import { IDonorProfileInputDTO } from '../../interfaces/IDonorProfile';
 import middlewares from '../middlewares';
 import { celebrate, Joi } from 'celebrate';
 import { Logger } from 'winston';
+import { domain } from 'process';
 
 const route = Router();
 
@@ -68,6 +69,25 @@ export default (app: Router) => {
         }
       },
     );
+
+        // custom API to get all ngos working in a specific domain
+        route.get(
+          '/ngo/:domain',
+        
+          async (req: Request, res: Response, next: NextFunction) => {
+            
+            const logger:Logger = Container.get('logger');
+            logger.debug('Calling Ngos endpoint with body: %o', req.body );
+            try {
+              const profileServiceInstance = Container.get(ProfileService);
+              const { ngoProfile} = await profileServiceInstance.GetNgosByDomain(domain); /* service get ngos with specific domain*/
+              return res.status(201).json({ ngoProfile });
+            } catch (e) {
+              logger.error('🔥 error: %o', e);
+              return next(e);
+            }
+          },
+        );
 
 // update ngo profile
 route.put(
