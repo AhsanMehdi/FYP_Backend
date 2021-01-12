@@ -49,7 +49,7 @@ export default (app: Router) => {
     },
   );
 
-    // custom API to get campaign
+    // custom API to get all campaigns
     route.get(
         '/',
         async (req: Request, res: Response, next: NextFunction) => {
@@ -86,7 +86,39 @@ export default (app: Router) => {
             },
           );
     
-
+    // custom API to update  a specific campaign
+    route.put (
+      '/:id',
+      middlewares.isAuth, middlewares.attachCurrentUser,
+      celebrate({
+        body: Joi.object({
+    
+          nickName: Joi.string().required(),
+          subject: Joi.string().required(),
+          descriptionStory:Joi.string().required(),
+          objective: Joi.string().required(),
+          country: Joi.string().required(),
+          status: Joi.string().required(),
+          visibility: Joi.string().required(),
+          dateOfCreation: Joi.string().required(),
+          imageUrl: Joi.string().required() 
+        }),
+      }),
+      async (req: Request, res: Response, next: NextFunction) => {
+        const logger:Logger = Container.get('logger');
+        logger.debug('Calling DONOR-Profile endpoint with body: %o', req.body );
+        try { 
+            let user = req.currentUser ;
+            req.body.userId = user._id ;
+           const campaignServiceInstance = Container.get(CampaignService);
+           const { campaign} = await campaignServiceInstance.CampaignUpdate(req.body as ICampaignInputDTO);
+          return res.status(201).json({ campaign });
+        } catch (e) {
+          logger.error('🔥 error: %o', e);
+          return next(e);
+        }
+      },
+    )
 
 //
   /**
