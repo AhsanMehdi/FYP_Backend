@@ -180,7 +180,7 @@ export default class NgoProfileService {
       var query = { interestedDomain: domain };  
       this.logger.silly('ngoProfile');
       this.logger.silly('getting ngo db record with specific domain');
-      const ngoProfileRecord = await this.ngoProfileModel.find({query});
+      const ngoProfileRecord = await this.ngoProfileModel.find(query);
       this.logger.silly('Generating JWT');
 
       if (!ngoProfileRecord) {

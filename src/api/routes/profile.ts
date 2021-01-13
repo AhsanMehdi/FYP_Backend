@@ -79,6 +79,7 @@ export default (app: Router) => {
             const logger:Logger = Container.get('logger');
             logger.debug('Calling Ngos endpoint with body: %o', req.body );
             try {
+              var domain = req.params.domain;
               const profileServiceInstance = Container.get(ProfileService);
               const { ngoProfile} = await profileServiceInstance.GetNgosByDomain(domain); /* service get ngos with specific domain*/
               return res.status(201).json({ ngoProfile });
