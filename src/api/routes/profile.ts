@@ -72,7 +72,7 @@ export default (app: Router) => {
 
         // custom API to get all ngos working in a specific domain
         route.get(
-          '/ngo/:domain',
+          '/ngo/domain/:domain',
         
           async (req: Request, res: Response, next: NextFunction) => {
             
@@ -89,6 +89,25 @@ export default (app: Router) => {
             }
           },
         );
+          // custom API to get all ngos working in a specific country
+          route.get(
+            '/ngo/country/:country',
+          
+            async (req: Request, res: Response, next: NextFunction) => {
+              
+              const logger:Logger = Container.get('logger');
+              logger.debug('Calling Ngos endpoint with body: %o', req.body );
+              try {
+                var country = req.params.country;
+                const profileServiceInstance = Container.get(ProfileService);
+                const { ngoProfile} = await profileServiceInstance.GetNgosByLocation(country); /* service get ngos with specific country*/
+                return res.status(201).json({ ngoProfile });
+              } catch (e) {
+                logger.error('🔥 error: %o', e);
+                return next(e);
+              }
+            },
+          );
 
 // update ngo profile
 route.put(
