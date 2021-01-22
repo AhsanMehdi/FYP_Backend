@@ -7,7 +7,6 @@ export interface ICampaign {
     objective: string;
     country: string;
     status: string;
-    visibility: string;
     dateOfCreation: string;
     userId: string; // for user authentication
   }
@@ -20,7 +19,6 @@ export interface ICampaign {
     objective: string;
     country: string;
     status: string;
-    visibility: string;
     dateOfCreation: string;
     userId: string;
   }

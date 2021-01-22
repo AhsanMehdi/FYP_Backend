@@ -99,7 +99,6 @@ export default (app: Router) => {
           objective: Joi.string().required(),
           country: Joi.string().required(),
           status: Joi.string().required(),
-          visibility: Joi.string().required(),
           dateOfCreation: Joi.string().required(),
           imageUrl: Joi.string().required() 
         }),

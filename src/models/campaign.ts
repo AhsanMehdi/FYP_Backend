@@ -45,12 +45,6 @@ const Campaign = new mongoose.Schema(
         index: true,
     },
 
-    visibility: {
-        type: String,
-        required: false, 
-        index: true,
-    },
-
     dateOfCreation: {
         type: String,
         required: true, 
