@@ -11,6 +11,12 @@ export interface IDonorProfile {
     country: string;
     visibility: string;
     occupation: string;
+    domainHealth: string;
+    domainEducation: string;
+    domainOrphanage: string;
+    domainEnvironment: string;
+    domainSocialWelfare: string;
+    domainOther: string;
     userId: string; // only for user authentication
   }
    /* this is only to get input and map into the database*/
@@ -25,5 +31,11 @@ export interface IDonorProfile {
     country: string;
     visibility: string;
     occupation: string;
+    domainHealth: string;
+    domainEducation: string;
+    domainOrphanage: string;
+    domainEnvironment: string;
+    domainSocialWelfare: string;
+    domainOther: string;
     userId: string;
   }

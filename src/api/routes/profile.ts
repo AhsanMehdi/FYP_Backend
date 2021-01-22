@@ -159,7 +159,15 @@ route.post(
       cnic:Joi.string().required(),
       country: Joi.string().required(),
       visibility: Joi.string().required(),
-      occupation: Joi.string().required()
+      occupation: Joi.string().required(),
+      domainHealth: Joi.string().required(),
+      domainEducation: Joi.string().required(),
+      domainOrphanage: Joi.string().required(),
+      domainEnvironment: Joi.string().required(),
+      domainSocialWelfare: Joi.string().required(),
+      domainOther: Joi.string().required()
+
+
     }),
   }),
   async (req: Request, res: Response, next: NextFunction) => {
