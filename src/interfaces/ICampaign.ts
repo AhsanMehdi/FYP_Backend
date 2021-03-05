@@ -8,6 +8,7 @@ export interface ICampaign {
     country: string;
     status: string;
     dateOfCreation: string;
+    imageUrl: string;
     userId: string; // for user authentication
   }
   /* this is only to get input and map into the database*/
@@ -20,6 +21,7 @@ export interface ICampaign {
     country: string;
     status: string;
     dateOfCreation: string;
+    imageUrl: string;
     userId: string;
   }
 
