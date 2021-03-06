@@ -28,16 +28,16 @@ const Project = new mongoose.Schema(
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
-    totalDonation: {
-        type: Number,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
-    collectedDonation: {
-        type: Number,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
+    // totalDonation: {
+    //     type: Number,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
+    // collectedDonation: {
+    //     type: Number,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
     descriptionStory: {
         type: String,
         required: [true, 'Please enter a nick name name'],
@@ -48,49 +48,49 @@ const Project = new mongoose.Schema(
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
-    receivedDonationArea: {
-        type: String
-    },
-    currentExpenses: {
-        type: Number,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
+    // receivedDonationArea: {
+    //     type: String
+    // },
+    // currentExpenses: {
+    //     type: Number,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
     country: {
         type: String,
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
-    expectedEndDate: {
-        type: String,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
+    // expectedEndDate: {
+    //     type: String,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
     startDate: {
         type: String,
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
-    visibility: {
+    // visibility: {
+    //     type: String,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
+    registerationNumber: {
         type: String,
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
-    RegisterationNumber: {
-        type: String,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
-    totalDonors: {
-        type: String,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
-    visibleDonors: {
-        type: String,
-        required: [true, 'Please enter a nick name name'],
-        index: true,
-    },
+    // totalDonors: {
+    //     type: String,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
+    // visibleDonors: {
+    //     type: String,
+    //     required: [true, 'Please enter a nick name name'],
+    //     index: true,
+    // },
     userId: {
         type: String,
         required: [true, 'Please enter a nick name name'],

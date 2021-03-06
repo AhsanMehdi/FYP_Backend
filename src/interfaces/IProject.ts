@@ -4,19 +4,20 @@ export interface IProject {
     tittle: string;
     projectType: string;
     estimatedBudget: number;
-    totalDonation: number;
-    collectedDonation: number;
+    //totalDonation: number;
+    //collectedDonation: number;
     descriptionStory: string ;
     objective: string ;
-    receivedDonationArea: string;
-    currentExpenses: number;
+    //receivedDonationArea: string;
+    //currentExpenses: number;
     country: string;
-    expectedEndDate: string;
+    //expectedEndDate: string;
     startDate: string;
-    visibility: string;
+    //visibility: string;
     RegisterationNumber: string;
-    totalDonors: string;
-    visibleDonors: string;
+    //totalDonors: string;
+    //visibleDonors: string;
+    imageUrl: string ;
     userId: string; // for user authentication
     
   }
@@ -25,18 +26,19 @@ export interface IProject {
     tittle: string;
     projectType: string;
     estimatedBudget: number;
-    totalDonation: number;
-    collectedDonation: number;
+    //totalDonation: number;
+    //collectedDonation: number;
     descriptionStory: string ;
     objective: string ;
-    receivedDonationArea: string;
-    currentExpenses: number;
+    //receivedDonationArea: string;
+    //currentExpenses: number;
     country: string;
-    expectedEndDate: string;
+    //expectedEndDate: string;
     startDate: string;
-    visibility: string;
+    //visibility: string;
     RegisterationNumber: string;
-    totalDonors: string;
-    visibleDonors: string;
+    //totalDonors: string;
+    //visibleDonors: string;
+    imageUrl: string ;
     userId: string;
   }
