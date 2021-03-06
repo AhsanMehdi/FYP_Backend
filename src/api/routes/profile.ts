@@ -155,7 +155,7 @@ route.post(
       lastName:Joi.string().required(),
       dob:Joi.string().required(),
       cellNumber: Joi.string().required(),
-      interestedDomain: Joi.string().required(),
+     // interestedDomain: Joi.string().required(),
       cnic:Joi.string().required(),
       country: Joi.string().required(),
       visibility: Joi.string().required(),

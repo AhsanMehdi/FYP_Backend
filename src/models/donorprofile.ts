@@ -33,11 +33,11 @@ const DonorProfile = new mongoose.Schema(
         index: true,
     },
 
-    interestedDomain: {
-        type: String,
-        required: true, 
-        index: true,
-    },
+    // interestedDomain: {
+    //     type: String,
+    //     required: true, 
+    //     index: true,
+    // },
     
     cellNumber:{
         type: String,
