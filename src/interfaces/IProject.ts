@@ -14,7 +14,7 @@ export interface IProject {
     //expectedEndDate: string;
     startDate: string;
     //visibility: string;
-    RegisterationNumber: string;
+    registerationNumber: string;
     //totalDonors: string;
     //visibleDonors: string;
     imageUrl: string ;
@@ -36,7 +36,7 @@ export interface IProject {
     //expectedEndDate: string;
     startDate: string;
     //visibility: string;
-    RegisterationNumber: string;
+    registerationNumber: string;
     //totalDonors: string;
     //visibleDonors: string;
     imageUrl: string ;

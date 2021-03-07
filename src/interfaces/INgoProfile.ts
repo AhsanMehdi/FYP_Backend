@@ -4,12 +4,12 @@ export interface INgoProfile {
     nickName: string;
     completedProjects: number;
     interestedDomain: string;
-    averageReceivedDonationYear: number;
+    //averageReceivedDonationYear: number;
     contactNumber: string;
     country: string;
-    startDate: string;
-    visibility: string;
-    registerationNumber: string;
+    //startDate: string;
+    //visibility: string;
+    //registerationNumber: string;
     userId: string; // only for user authentication
     
   }
@@ -18,12 +18,12 @@ export interface INgoProfile {
     nickName: string;
     completedProjects: number;
     interestedDomain: string;
-    averageReceivedDonationYear: number;
+    //averageReceivedDonationYear: number;
     contactNumber: string;
     country: string;
-    startDate: string;
-    visibility: string;
-    registerationNumber: string;
-    userId: string;
+    //startDate: string;
+    //visibility: string;
+    //registerationNumber: string;
+    userId: string; // only for user authentication
  
   }

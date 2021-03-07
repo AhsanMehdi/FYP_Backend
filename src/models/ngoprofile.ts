@@ -39,10 +39,10 @@ const NgoProfile = new mongoose.Schema(
         index: true,
     },
     
-    averageReceivedDonationYear:{
-        type: Number,
-        index: true,
-    },
+    // averageReceivedDonationYear:{
+    //     type: Number,
+    //     index: true,
+    // },
 
     contactNumber: {
         type: String,
@@ -56,23 +56,23 @@ const NgoProfile = new mongoose.Schema(
         index: true,
     },
 
-    startDate: {
-        type: String,
-        required: true, 
-        index: true,
-    },
+    // startDate: {
+    //     type: String,
+    //     required: true, 
+    //     index: true,
+    // },
 
-    visibility: {
-        type: String,
-        required: true, 
-        index: true,
-    },
+    // visibility: {
+    //     type: String,
+    //     required: true, 
+    //     index: true,
+    // },
 
-    registerationNumber: {
-        type: String,
-        required: true, 
-        index: true,
-    },
+    // registerationNumber: {
+    //     type: String,
+    //     required: true, 
+    //     index: true,
+    // },
     userId:{
       type: String,
       required: true, 

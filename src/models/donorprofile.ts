@@ -69,32 +69,32 @@ const DonorProfile = new mongoose.Schema(
     },
     /* adding some attributes regarding the interested domain*/
     domainHealth: {
-      type: String,
+      type: Boolean,
       required: true, 
       index: true,
   },
       domainEducation: {
-        type: String,
+        type: Boolean,
         required: true, 
         index: true,
     },
     domainOrphanage: {
-      type: String,
+      type: Boolean,
       required: true, 
       index: true,
     },
     domainEnvironment: {
-      type: String,
+      type: Boolean,
       required: true, 
       index: true,
     },
     domainSocialWelfare: {
-      type: String,
+      type: Boolean,
       required: true, 
       index: true,
     },
     domainOther: {
-      type: String,
+      type: Boolean,
       required: true, 
       index: true,
     },

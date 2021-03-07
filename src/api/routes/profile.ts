@@ -26,12 +26,12 @@ export default (app: Router) => {
         nickName: Joi.string().required(),
         completedProjects: Joi.number().required(),
         interestedDomain: Joi.string().required(),
-        averageReceivedDonationYear: Joi.number().required(),
+        //averageReceivedDonationYear: Joi.number().required(),
         contactNumber: Joi.string().required(),
         country: Joi.string().required(),
-        startDate: Joi.string().required(),
-        visibility: Joi.string().required(),
-        registerationNumber: Joi.string().required(),
+        //startDate: Joi.string().required(),
+        //visibility: Joi.string().required(),
+        //registerationNumber: Joi.string().required(),
         imageUrl: Joi.string()
       }),
     }),
@@ -117,14 +117,15 @@ route.put(
     body: Joi.object({
 
       nickName: Joi.string().required(),
-      completedProjects: Joi.number().required(),
-      interestedDomain: Joi.string().required(),
-      averageReceivedDonationYear: Joi.number().required(),
-      contactNumber: Joi.string().required(),
-      country: Joi.string().required(),
-      startDate: Joi.string().required(),
-      visibility: Joi.string().required(),
-      registerationNumber: Joi.string().required()
+        completedProjects: Joi.number().required(),
+        interestedDomain: Joi.string().required(),
+        //averageReceivedDonationYear: Joi.number().required(),
+        contactNumber: Joi.string().required(),
+        country: Joi.string().required()
+        //startDate: Joi.string().required(),
+        //visibility: Joi.string().required(),
+        //registerationNumber: Joi.string().required(),
+    
     }),
   }),
   async (req: Request, res: Response, next: NextFunction) => {
