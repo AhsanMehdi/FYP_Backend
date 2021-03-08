@@ -33,11 +33,42 @@ const NgoProfile = new mongoose.Schema(
         index: true,
     },
 
-    interestedDomain: {
-        type: String,
-        required: true, 
-        index: true,
-    },
+    // interestedDomain: {
+    //     type: String,
+    //     required: true, 
+    //     index: true,
+    // },
+        /* adding some attributes regarding the interested domain*/
+        domainHealth: {
+          type: Boolean,
+          required: true, 
+          index: true,
+      },
+          domainEducation: {
+            type: Boolean,
+            required: true, 
+            index: true,
+        },
+        domainOrphanage: {
+          type: Boolean,
+          required: true, 
+          index: true,
+        },
+        domainEnvironment: {
+          type: Boolean,
+          required: true, 
+          index: true,
+        },
+        domainSocialWelfare: {
+          type: Boolean,
+          required: true, 
+          index: true,
+        },
+        domainOther: {
+          type: Boolean,
+          required: true, 
+          index: true,
+        },
     
     // averageReceivedDonationYear:{
     //     type: Number,

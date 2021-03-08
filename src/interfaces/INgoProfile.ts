@@ -3,10 +3,16 @@ export interface INgoProfile {
     _id: string;
     nickName: string;
     completedProjects: number;
-    interestedDomain: string;
+  
     //averageReceivedDonationYear: number;
     contactNumber: string;
     country: string;
+    domainHealth: boolean;
+    domainEducation: boolean;
+    domainOrphanage: boolean;
+    domainEnvironment: boolean;
+    domainSocialWelfare: boolean;
+    domainOther: boolean;
     //startDate: string;
     //visibility: string;
     //registerationNumber: string;
@@ -17,10 +23,16 @@ export interface INgoProfile {
   export interface INgoProfileInputDTO {
     nickName: string;
     completedProjects: number;
-    interestedDomain: string;
+  
     //averageReceivedDonationYear: number;
     contactNumber: string;
     country: string;
+    domainHealth: boolean;
+    domainEducation: boolean;
+    domainOrphanage: boolean;
+    domainEnvironment: boolean;
+    domainSocialWelfare: boolean;
+    domainOther: boolean;
     //startDate: string;
     //visibility: string;
     //registerationNumber: string;

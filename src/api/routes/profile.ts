@@ -25,13 +25,18 @@ export default (app: Router) => {
 
         nickName: Joi.string().required(),
         completedProjects: Joi.number().required(),
-        interestedDomain: Joi.string().required(),
         //averageReceivedDonationYear: Joi.number().required(),
         contactNumber: Joi.string().required(),
         country: Joi.string().required(),
         //startDate: Joi.string().required(),
         //visibility: Joi.string().required(),
         //registerationNumber: Joi.string().required(),
+        domainHealth: Joi.boolean().required(),
+        domainEducation: Joi.boolean().required(),
+        domainOrphanage: Joi.boolean().required(),
+        domainEnvironment: Joi.boolean().required(),
+        domainSocialWelfare: Joi.boolean().required(),
+        domainOther: Joi.boolean().required(),
         imageUrl: Joi.string()
       }),
     }),
@@ -161,12 +166,12 @@ route.post(
       country: Joi.string().required(),
       visibility: Joi.string().required(),
       occupation: Joi.string().required(),
-      domainHealth: Joi.string().required(),
-      domainEducation: Joi.string().required(),
-      domainOrphanage: Joi.string().required(),
-      domainEnvironment: Joi.string().required(),
-      domainSocialWelfare: Joi.string().required(),
-      domainOther: Joi.string().required()
+      domainHealth: Joi.boolean().required(),
+      domainEducation: Joi.boolean().required(),
+      domainOrphanage: Joi.boolean().required(),
+      domainEnvironment: Joi.boolean().required(),
+      domainSocialWelfare: Joi.boolean().required(),
+      domainOther: Joi.boolean().required()
 
 
     }),
