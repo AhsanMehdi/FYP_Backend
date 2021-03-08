@@ -122,14 +122,20 @@ route.put(
     body: Joi.object({
 
       nickName: Joi.string().required(),
-        completedProjects: Joi.number().required(),
-        interestedDomain: Joi.string().required(),
-        //averageReceivedDonationYear: Joi.number().required(),
-        contactNumber: Joi.string().required(),
-        country: Joi.string().required()
-        //startDate: Joi.string().required(),
-        //visibility: Joi.string().required(),
-        //registerationNumber: Joi.string().required(),
+      completedProjects: Joi.number().required(),
+      //averageReceivedDonationYear: Joi.number().required(),
+      contactNumber: Joi.string().required(),
+      country: Joi.string().required(),
+      //startDate: Joi.string().required(),
+      //visibility: Joi.string().required(),
+      //registerationNumber: Joi.string().required(),
+      domainHealth: Joi.boolean().required(),
+      domainEducation: Joi.boolean().required(),
+      domainOrphanage: Joi.boolean().required(),
+      domainEnvironment: Joi.boolean().required(),
+      domainSocialWelfare: Joi.boolean().required(),
+      domainOther: Joi.boolean().required(),
+      imageUrl: Joi.string()
     
     }),
   }),
