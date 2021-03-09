@@ -28,10 +28,10 @@ const NgoProfile = new mongoose.Schema(
     },*/
 
 
-    completedProjects:{
-        type: Number,
-        index: true,
-    },
+    // completedProjects:{
+    //     type: Number,
+    //     index: true,
+    // },
 
     // interestedDomain: {
     //     type: String,

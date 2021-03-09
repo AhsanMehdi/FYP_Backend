@@ -24,7 +24,7 @@ export default (app: Router) => {
       body: Joi.object({
 
         nickName: Joi.string().required(),
-        completedProjects: Joi.number().required(),
+        //completedProjects: Joi.number().required(),
         //averageReceivedDonationYear: Joi.number().required(),
         contactNumber: Joi.string().required(),
         country: Joi.string().required(),
@@ -122,7 +122,7 @@ route.put(
     body: Joi.object({
 
       nickName: Joi.string().required(),
-      completedProjects: Joi.number().required(),
+      //completedProjects: Joi.number().required(),
       //averageReceivedDonationYear: Joi.number().required(),
       contactNumber: Joi.string().required(),
       country: Joi.string().required(),

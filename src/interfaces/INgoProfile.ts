@@ -2,7 +2,7 @@
 export interface INgoProfile {
     _id: string;
     nickName: string;
-    completedProjects: number;
+    //completedProjects: number;
     contactNumber: string;
     country: string;
     domainHealth: boolean;
@@ -17,7 +17,7 @@ export interface INgoProfile {
    /* this is only to get input and map into the database*/
   export interface INgoProfileInputDTO {
     nickName: string;
-    completedProjects: number;
+    //completedProjects: number;
     contactNumber: string;
     country: string;
     domainHealth: boolean;
