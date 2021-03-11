@@ -159,6 +159,27 @@ export default (app: Router) => {
             },
           );
 
+                    // custom API to get all campaigns of specific status
+           route.get(
+            '/status/:status',
+          
+            async (req: Request, res: Response, next: NextFunction) => {
+              
+              const logger:Logger = Container.get('logger');
+              logger.debug('Calling campaign endpoint with body: %o', req.body );
+              try {
+                var status = req.params.status;
+                console.log ( " received subject is " + status)
+                const campaignServiceInstance = Container.get(CampaignService);
+                const { campaign} = await campaignServiceInstance.GetCampaignsByStatus(status); /* service get ngos with specific domain*/
+                return res.status(201).json({ campaign });
+              } catch (e) {
+                logger.error('🔥 error: %o', e);
+                return next(e);
+              }
+            },
+          );
+
 //
   /**
    * @TODO Let's leave this as a place holder for now
