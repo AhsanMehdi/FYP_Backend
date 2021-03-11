@@ -7,6 +7,7 @@ import { randomBytes } from 'crypto';
 import { ICampaign, ICampaignInputDTO } from '../interfaces/ICampaign';
 import { EventDispatcher, EventDispatcherInterface } from '../decorators/eventDispatcher';
 import events from '../subscribers/events';
+import { domain } from 'process';
 
 @Service()
 export default class CampaignService {
@@ -159,7 +160,7 @@ export default class CampaignService {
      /*------------------------------------------ Filters API's-----------------------------------------------*/
   /* get an ngo with specific domain*/
   
-  public async GetCampaignsByDomain( subject: string): Promise<{ campaign: ICampaign[] }> {
+  public async GetCampaignsByDomain( domain: string): Promise<{ campaign: ICampaign[] }> {
     try {
   
       /**
@@ -178,13 +179,15 @@ export default class CampaignService {
        * watches every API call and if it spots a 'password' and 'email' property then
        * it decides to steal them!? Would you even notice that? I wouldn't :/
        */
-      var query = { subject: subject };  
-      this.logger.silly('ngoProfile');
+      var query = { subject: domain };  
+      console.log ( " we received in query is " + query)
+      console.log ( " received subject is " + domain)
+      this.logger.silly('campaigns');
       this.logger.silly('getting ngo db record with specific domain');
-      const ngoProfileRecord = await this.campaignModel.find(query);
+      const campaignRecord = await this.campaignModel.find(query);
       this.logger.silly('Generating JWT');
 
-      if (!ngoProfileRecord) {
+      if (!campaignRecord) {
         throw new Error('no ngo exists');
       }
 
@@ -194,8 +197,8 @@ export default class CampaignService {
        * that transforms data from layer to layer
        * but that's too over-engineering for now
        */
-      const ngoProfile = ngoProfileRecord
-      return { ngoProfile };
+      const campaign = campaignRecord
+      return { campaign };
     } catch (e) {
       this.logger.error(e);
       throw e;

@@ -120,7 +120,7 @@ export default (app: Router) => {
 
            // custom API to get all campaigns of specific subject or domain
            route.get(
-            '/campaign/subject/:subject',
+            '/subject/:subject',
           
             async (req: Request, res: Response, next: NextFunction) => {
               
@@ -128,6 +128,7 @@ export default (app: Router) => {
               logger.debug('Calling Ngos endpoint with body: %o', req.body );
               try {
                 var subject = req.params.subject;
+                console.log ( " received subject is " + subject)
                 const campaignServiceInstance = Container.get(CampaignService);
                 const { campaign} = await campaignServiceInstance.GetCampaignsByDomain(subject); /* service get ngos with specific domain*/
                 return res.status(201).json({ campaign });
