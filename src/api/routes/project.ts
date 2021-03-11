@@ -90,8 +90,26 @@ export default (app: Router) => {
         }
       },
     );
+    // custom api to get a project of specific type or domain
+    route.get(
+      '/tittle/:tittle',
     
-
+      async (req: Request, res: Response, next: NextFunction) => {
+        
+        const logger:Logger = Container.get('logger');
+        logger.debug('Calling project endpoint with body: %o', req.body );
+        try {
+          var tittle = req.params.tittle;
+          console.log ( " received subject is " + tittle)
+          const projectServiceInstance = Container.get(ProjectService);
+          const { project} = await projectServiceInstance.GetProjectsBytittle(tittle); /* service get ngos with specific domain*/
+          return res.status(201).json({ project });
+        } catch (e) {
+          logger.error('🔥 error: %o', e);
+          return next(e);
+        }
+      },
+    );
 
 
 
