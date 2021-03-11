@@ -179,6 +179,27 @@ export default (app: Router) => {
               }
             },
           );
+          
+                    // custom API to get all campaigns of specific nickName
+           route.get(
+            '/nickName/:nickName',
+          
+            async (req: Request, res: Response, next: NextFunction) => {
+              
+              const logger:Logger = Container.get('logger');
+              logger.debug('Calling campaign endpoint with body: %o', req.body );
+              try {
+                var nickName = req.params.nickName;
+                console.log ( " received subject is " + nickName)
+                const campaignServiceInstance = Container.get(CampaignService);
+                const { campaign} = await campaignServiceInstance.GetCampaignsByNickName(nickName); /* service get ngos with specific domain*/
+                return res.status(201).json({ campaign });
+              } catch (e) {
+                logger.error('🔥 error: %o', e);
+                return next(e);
+              }
+            },
+          );
 
 //
   /**

