@@ -54,6 +54,11 @@ export default async ({ expressApp }) => {
     // Notice the require syntax and the '.default'
     model: require('../models/chatbox').default,
   };
+  const reviewProjectModel = {
+    name: 'reviewProjectModel',
+    // Notice the require syntax and the '.default'
+    model: require('../models/reviewproject').default,
+  };
 
   // It returns the agenda instance because it's needed in the subsequent loaders
   const { agenda } = await dependencyInjectorLoader({
@@ -65,6 +70,7 @@ export default async ({ expressApp }) => {
       projectModel,
       campaignModel,
       chatBoxModel,
+      reviewProjectModel,
 
       // salaryModel,
       // whateverModel

@@ -5,6 +5,8 @@ import { IDonorProfile } from '../../interfaces/IDonorProfile';
 import { IProject } from '../../interfaces/IProject';
 import { ICampaign } from '../../interfaces/ICampaign';
 import { IChatBox } from '../../interfaces/IChatBox';
+import { IReviewProject } from '../../interfaces/IReviewProject';
+
 
 
 
@@ -23,6 +25,8 @@ declare global {
     export type ProjectModel = Model<IProject & Document>;
     export type CampaignModel = Model<ICampaign & Document>;
     export type ChatBoxModel = Model<IChatBox & Document>;
+    export type ReviewProjectModel = Model<IReviewProject & Document>;
+
 
 
   }
