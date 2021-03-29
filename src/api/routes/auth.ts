@@ -60,6 +60,15 @@ export default (app: Router) => {
     },
   );
 
+  /* logout api implementation*/
+//   route.get('/logout', function(req, res){
+//     req.session.destroy(function(){
+//        console.log("user logged out.")
+     
+//     });
+//     req.session = null; 
+//     res.redirect('/login');
+//  });
   
 
   /**
