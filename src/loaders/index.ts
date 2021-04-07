@@ -3,6 +3,7 @@ import dependencyInjectorLoader from './dependencyInjector';
 import mongooseLoader from './mongoose';
 import jobsLoader from './jobs';
 import Logger from './logger';
+import socketLoader from './socket';
 //We have to import at least all the events once so they can be triggered
 import './events';
 
@@ -75,4 +76,6 @@ export default async ({ expressApp }) => {
 
   await expressLoader({ app: expressApp });
   Logger.info('✌️ Express loaded');
+
+  Logger.info('✌️ Socker loaded');
 };
