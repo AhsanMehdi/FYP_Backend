@@ -6,9 +6,9 @@ import express from 'express';
 import * as http from "http";
 import Logger from './loaders/logger';
 
-private sockets(): void {
+// private sockets(): void {
   
-}
+// }
 
 async function startServer() {
   const app = express();
