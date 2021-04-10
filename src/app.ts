@@ -21,16 +21,16 @@ async function startServer() {
    **/
   await require('./loaders').default({ expressApp: app });
 
-  this.server = http.createServer(this.app);
-  this.io = require("socket.io").listen(this.server, { origins: '*:*'});
+  // this.server = http.createServer(this.app);
+  // this.io = require("socket.io").listen(this.server, { origins: '*:*'});
 
-  this.io.on("connect", (socket: any) => {
-    console.log("Connected client on port %s.", this.port);
-    socket.on("message", (m: any) => {
-      console.log("[server](message): %s", JSON.stringify(m));
-      this.io.emit("message", m);
-    });
-  })
+  // this.io.on("connect", (socket: any) => {
+  //   console.log("Connected client on port %s.", this.port);
+  //   socket.on("message", (m: any) => {
+  //     console.log("[server](message): %s", JSON.stringify(m));
+  //     this.io.emit("message", m);
+  //   });
+  // })
 
   app.listen(config.port, () => {
     Logger.info(`
