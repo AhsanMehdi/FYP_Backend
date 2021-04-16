@@ -37,7 +37,7 @@ export default (app: Router) => {
         domainEnvironment: Joi.boolean().required(),
         domainSocialWelfare: Joi.boolean().required(),
         domainOther: Joi.boolean().required(),
-        imageUrl: Joi.string()
+        //imageUrl: Joi.string()
       }),
     }),
     /* responsible to get values*/
@@ -136,7 +136,7 @@ export default (app: Router) => {
 // update ngo profile
 route.put(
   '/ngo',
-  middlewares.isAuth, middlewares.attachCurrentUser,
+ // middlewares.isAuth, middlewares.attachCurrentUser,
   celebrate({
     body: Joi.object({
 
@@ -153,8 +153,8 @@ route.put(
       domainOrphanage: Joi.boolean().required(),
       domainEnvironment: Joi.boolean().required(),
       domainSocialWelfare: Joi.boolean().required(),
-      domainOther: Joi.boolean().required(),
-      imageUrl: Joi.string()
+      domainOther: Joi.boolean().required()
+      //imageUrl: Joi.string()
     
     }),
   }),

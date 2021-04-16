@@ -29,7 +29,7 @@ const ReviewProject = new mongoose.Schema(
         index: true,
     },
     noOfLikes: {
-      type: String,
+      type: Number,
       required: [true, 'total likes'],
       index: true,
   },
@@ -39,7 +39,7 @@ const ReviewProject = new mongoose.Schema(
       index: true,
   },
 
-    userId: {
+    projectId: {
         type: String,
         required: [true, 'Please enter a nick name name'],
         index: true,

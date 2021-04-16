@@ -6,7 +6,7 @@ export interface IReviewProject {
     dislike: string;
     noOfLikes: number;
     noOfDisLikes: number;
-    userId: string; // for user authentication
+    projectId: string; // for user authentication
     
   }
    /* this is only to get input and map into the database*/
@@ -16,5 +16,5 @@ export interface IReviewProject {
     dislike: string;
     noOfLikes: number;
     noOfDisLikes: number;
-    userId: string; // for user authentication
+    projectId: string; // for user authentication
   }
