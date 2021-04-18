@@ -36,7 +36,7 @@ export default (app: Router) => {
         registerationNumber: Joi.string().required(),
         //totalDonors: Joi.number().required(),
         //visibleDonors: Joi.string().required(),
-        imageUrl: Joi.string().required() 
+       // imageUrl: Joi.string().required() 
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
@@ -151,6 +151,24 @@ export default (app: Router) => {
           },
         ); 
 
+// api in which user send the user id & then we will give all the corresponding projects
+route.get(
+  '/userId/:userId',
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling Project endpoint with body: %o', req.body );
+    try {
+
+      var id = req.params.userId;
+      const projectServiceInstance = Container.get(ProjectService);
+      const { project} = await projectServiceInstance.GetProjectByUserId(id);
+      return res.status(201).json({ project });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
 
 //
   /**
