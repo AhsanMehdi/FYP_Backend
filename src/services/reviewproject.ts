@@ -47,6 +47,27 @@ export default class ReviewProjectService {
       throw e;
     }
   }
-
+ 
+  /* service to give comments for a specific project*/
+  public async GetCommentsOfSpecificProject(id: string): Promise<{ reviewProject: IReviewProject[] }> { /* project interface*/
+    try {
   
+
+      this.logger.silly('project comments');
+      this.logger.silly('getting project comments db record');
+      const reviewProjectRecord = await this.reviewProjectModel.find({projectId: id});
+      this.logger.silly('Generating JWT');
+  
+
+      if (!reviewProjectRecord) {
+        throw new Error('Project cannot be created');
+      }
+
+      const reviewProject = reviewProjectRecord;
+      return { reviewProject };
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
 }

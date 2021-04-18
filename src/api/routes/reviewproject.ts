@@ -45,4 +45,23 @@ export default (app: Router) => {
     },
   );
 
+  /* api to get the comments on a particular project */
+  route.get(
+    '/:id',  /* the sub path of */
+
+    async (req: Request, res: Response, next: NextFunction) => {
+      const logger:Logger = Container.get('logger');
+      logger.debug('Calling Project endpoint with body: %o', req.body );
+      try {
+        var id = req.params.id;
+        const reviewProjectServiceInstance = Container.get(ReviewProjectService);
+        const { reviewProject} = await reviewProjectServiceInstance.GetCommentsOfSpecificProject(id);
+        return res.status(201).json({ reviewProject });
+      } catch (e) {
+        logger.error('🔥 error: %o', e);
+        return next(e);
+      }
+    },
+  );
+
 };
