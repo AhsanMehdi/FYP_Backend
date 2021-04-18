@@ -169,7 +169,25 @@ route.get(
     }
   },
 );
+// api in which user send the project id then get the user id
+route.get(
+  '/id/:id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling Project endpoint with body: %o', req.body );
+    try {
 
+      var id = req.params.id;
+      const projectServiceInstance = Container.get(ProjectService);
+      const { project} = await projectServiceInstance.GetProjectOwnerId(id);
+      var userId = project[0].userId;
+      return res.status(201).json({ userId });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
 //
   /**
    * @TODO Let's leave this as a place holder for now
