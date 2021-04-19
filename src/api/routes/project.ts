@@ -36,7 +36,7 @@ export default (app: Router) => {
         registerationNumber: Joi.string().required(),
         //totalDonors: Joi.number().required(),
         //visibleDonors: Joi.string().required(),
-       // imageUrl: Joi.string().required() 
+       imageUrl: Joi.string().required() 
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {

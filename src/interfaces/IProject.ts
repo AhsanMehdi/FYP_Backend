@@ -17,7 +17,7 @@ export interface IProject {
     registerationNumber: string;
     //totalDonors: string;
     //visibleDonors: string;
-    //imageUrl: string ;
+    imageUrl: string ;
     userId: string; // for user authentication
     
   }
@@ -31,6 +31,6 @@ export interface IProject {
     country: string;
     startDate: string;
     registerationNumber: string;
-    //imageUrl: string ;
+    imageUrl: string ;
     userId: string;
   }
