@@ -108,7 +108,7 @@ export default class AuthService {
        */
       return { user, token };
     } else {
-      throw new Error('Invalid Password');
+      throw new Error('Invalid Email or Password');
     }
   }
 

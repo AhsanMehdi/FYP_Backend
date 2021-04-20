@@ -55,6 +55,8 @@ export default (app: Router) => {
         return res.json({ user, token }).status(200);
       } catch (e) {
         logger.error('🔥 error: %o',  e );
+        res.status(400);
+        res.send('invalid email or password');
         return next(e);
       }
     },

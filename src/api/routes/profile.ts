@@ -76,6 +76,24 @@ export default (app: Router) => {
         }
       },
     );
+        /* Custom API to get ngo by id */
+        route.get(
+          '/ngo/:id',
+          async (req: Request, res: Response, next: NextFunction) => {
+            const logger:Logger = Container.get('logger');
+            logger.debug('Calling Donor endpoint with body: %o', req.body );
+            try {
+    
+              var id = req.params.id;
+              const profileServiceInstance = Container.get(ProfileService);
+              const { ngo} = await profileServiceInstance.GetNgoById(id);
+              return res.status(201).json({ ngo });
+            } catch (e) {
+              logger.error('🔥 error: %o', e);
+              return next(e);
+            }
+          },
+        );
 
         // custom API to get all ngos working in a specific domain
         route.get(
