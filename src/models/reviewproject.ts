@@ -23,21 +23,6 @@ const ReviewProject = new mongoose.Schema(
         required: [true, 'write like'],
         index: true,
     },
-    dislike: {
-        type: String,
-        required: [true, 'write dislike'],
-        index: true,
-    },
-    noOfLikes: {
-      type: Number,
-      required: [true, 'total likes'],
-      index: true,
-  },
-    noOfDisLikes: {
-      type: Number,
-      required: [true, 'total likes'],
-      index: true,
-  },
 
     projectId: {
         type: String,

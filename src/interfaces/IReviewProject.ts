@@ -3,9 +3,6 @@ export interface IReviewProject {
     _id: string;
     comment: string;
     like: string;
-    dislike: string;
-    noOfLikes: number;
-    noOfDisLikes: number;
     projectId: string; // for user authentication
     
   }
@@ -13,8 +10,5 @@ export interface IReviewProject {
   export interface IReviewProjectInputDTO {
     comment: string;
     like: string;
-    dislike: string;
-    noOfLikes: number;
-    noOfDisLikes: number;
     projectId: string; // for user authentication
   }

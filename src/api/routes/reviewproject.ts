@@ -23,11 +23,7 @@ export default (app: Router) => {
       body: Joi.object({
                               /* verified by postman*/
         comment: Joi.string().required(),
-        like: Joi.string().required(),
-        dislike: Joi.string().required(),
-        noOfLikes: Joi.number().required(),
-        noOfDisLikes: Joi.number().required()
- 
+        like: Joi.string().required()
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
