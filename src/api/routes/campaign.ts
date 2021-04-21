@@ -179,7 +179,24 @@ export default (app: Router) => {
               }
             },
           );
-          
+      // api in which user send the user id & then we will give all the corresponding campaigns
+route.get(
+  '/userId/:userId',
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling Project endpoint with body: %o', req.body );
+    try {
+
+      var id = req.params.userId;
+      const campaignServiceInstance = Container.get(CampaignService);
+      const { campaign} = await campaignServiceInstance.GetCampaignByUserId(id);
+      return res.status(201).json({ campaign });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
                     // custom API to get all campaigns of specific nickName
            route.get(
             '/nickName/:nickName',
