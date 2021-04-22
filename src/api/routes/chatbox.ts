@@ -44,8 +44,27 @@ export default (app: Router) => {
       }
     },
   );
+/*api to get data of chat of user*/
+  route.get(
+    '/from/:id',
+    middlewares.isAuth, middlewares.attachCurrentUser, 
+    async (req: Request, res: Response, next: NextFunction) => {
+      const logger:Logger = Container.get('logger');
+      logger.debug('Calling Donor endpoint with body: %o', req.body );
+      try {
 
-
+        var id = req.params.id;
+        let user = req.currentUser ;
+        var currentUserId = user._id ;
+        const chatBoxServiceInstance = Container.get(ChatBoxService);
+        const { chatbox} = await chatBoxServiceInstance.GetChatuserId(id, currentUserId);
+        return res.status(201).json({ chatbox });
+      } catch (e) {
+        logger.error('🔥 error: %o', e);
+        return next(e);
+      }
+    },
+  );
 
 //
   /**
