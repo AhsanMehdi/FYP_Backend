@@ -84,16 +84,16 @@ public async GetChatuserId( id: string, userId: string): Promise<{ chatbox: ICha
      */
     this.logger.silly('ngo');
     this.logger.silly('retrieving donor db record');
-    const chatBoxRecord = await this.chatBoxModel.find({toId: id, fromId:userId});
-  
+    var tochat = await this.chatBoxModel.find({toId: id, fromId:userId});
+    var fromchat = await this.chatBoxModel.find({toId: userId, fromId:id});
     this.logger.silly('Generating JWT');
+    fromchat = fromchat.concat(tochat)
 
-
-    if (!chatBoxRecord ) {
+    if (!fromchat ) {
       throw new Error('Donor does not exists');
     }
 
-    const chatbox = chatBoxRecord 
+    const chatbox = fromchat 
     return { chatbox };
   } catch (e) {
     this.logger.error(e);
