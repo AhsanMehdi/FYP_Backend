@@ -21,10 +21,10 @@ export default (app: Router) => {
     celebrate({
       body: Joi.object({
 
-        subject: Joi.string().required(),
+        
         message: Joi.string().required(),
-        createdAt:Joi.string().required(),
-        to: Joi.string().required(),
+        
+        to: Joi.string().required()
      
       }),
     }),

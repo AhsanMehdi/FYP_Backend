@@ -11,21 +11,14 @@ import mongoose from 'mongoose';
 */
 const ChatBox = new mongoose.Schema(
   {
-    subject: {
-      type: String,
-      required: [true, 'Please enter subject '],
-      index: true,
-    },
+    
 
     message: {
       type: String,
       index: true,
     },
 
-    createdAt:{
-        type: String,
-        index: true,
-    },
+
 
     to:{
       type: String,
