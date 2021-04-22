@@ -73,7 +73,7 @@ export default (app: Router) => {
         const authServiceInstance = Container.get(AuthService);
         const { user} = await authServiceInstance.GetUserTypeByuserId(id);
         var usertype = user[0].userType;
-        return res.status(201).json({ usertype });
+        return res.status(201).json({ user });
       } catch (e) {
         logger.error('🔥 error: %o', e);
         return next(e);
