@@ -84,7 +84,7 @@ public async GetChatuserId( id: string, userId: string): Promise<{ chatbox: ICha
      */
     this.logger.silly('ngo');
     this.logger.silly('retrieving donor db record');
-    const chatBoxRecord = await this.chatBoxModel.find({to: id, from:userId});
+    const chatBoxRecord = await this.chatBoxModel.find({toId: id, fromId:userId});
   
     this.logger.silly('Generating JWT');
 

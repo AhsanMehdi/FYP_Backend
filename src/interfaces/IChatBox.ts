@@ -3,8 +3,8 @@ export interface IChatBox {
     _id: string; // for user authentication
     
     message: string;
-    from:string;
-    to:string;
+    fromId:string;
+    toId:string;
   
 
 
@@ -14,8 +14,9 @@ export interface IChatBox {
   export interface IChatBoxInputDTO {
   
     message: string;
-    from:string;
-
+    fromId:string;
+    toId:string;
+  
     to:string;
   
 

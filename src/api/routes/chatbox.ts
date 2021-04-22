@@ -24,14 +24,14 @@ export default (app: Router) => {
         
         message: Joi.string().required(),
         
-        to: Joi.string().required()
+        toId: Joi.string().required()
      
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
 
       let user = req.currentUser ;
-      req.body.from = user._id ;
+      req.body.fromId = user._id ;
       const logger:Logger = Container.get('logger');
       logger.debug('Calling ChatBox endpoint with body: %o', req.body );
       try {
@@ -58,7 +58,7 @@ export default (app: Router) => {
         var currentUserId = user._id ;
         const chatBoxServiceInstance = Container.get(ChatBoxService);
         const { chatbox} = await chatBoxServiceInstance.GetChatuserId(id, currentUserId);
-        return res.status(201).json({ chatbox });
+        return res.status(201).json(chatbox );
       } catch (e) {
         logger.error('🔥 error: %o', e);
         return next(e);

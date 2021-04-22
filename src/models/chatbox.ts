@@ -20,12 +20,12 @@ const ChatBox = new mongoose.Schema(
 
 
 
-    to:{
+    toId:{
       type: String,
       index: true,
     },
 
-    from:{
+    fromId:{
     type: String,
     index: true,
     },
