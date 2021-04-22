@@ -36,10 +36,10 @@ export default (app: Router) => {
         domainOrphanage: Joi.boolean().required(),
         domainEnvironment: Joi.boolean().required(),
         domainSocialWelfare: Joi.boolean().required(),
-        domainOther: Joi.boolean().required(),
+        domainOther: Joi.boolean().required()
         // _id : Joi.string().optional()
 
-        //imageUrl: Joi.string()
+        // imageUrl: Joi.string()
       }),
     }),
     /* responsible to get values*/
@@ -94,7 +94,25 @@ export default (app: Router) => {
             }
           },
         );
-       /* Custom API to get ngo by user */
+       /* Custom API to get ngo profile by user */
+        route.get(
+          '/donor/userId/:id',
+          async (req: Request, res: Response, next: NextFunction) => {
+            const logger:Logger = Container.get('logger');
+            logger.debug('Calling Donor endpoint with body: %o', req.body );
+            try {
+    
+              var id = req.params.id;
+              const profileServiceInstance = Container.get(ProfileService);
+              const { donor} = await profileServiceInstance.GetDonorByuserId(id);
+              return res.status(201).json({ donor });
+            } catch (e) {
+              logger.error('🔥 error: %o', e);
+              return next(e);
+            }
+          },
+        );
+               /* Custom API to get donor profile by user id */
         route.get(
           '/ngo/userId/:id',
           async (req: Request, res: Response, next: NextFunction) => {
