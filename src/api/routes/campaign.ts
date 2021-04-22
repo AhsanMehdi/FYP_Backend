@@ -217,7 +217,25 @@ route.get(
               }
             },
           );
+// api in which user send the campaign id then get the user id********************
+route.get(
+  '/id/:id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling campaign endpoint with body: %o', req.body );
+    try {
 
+      var id = req.params.id;
+      const campaignServiceInstance = Container.get(CampaignService);
+      const { campaign} = await campaignServiceInstance.GetCampaignOwnerId(id);
+      var userId = campaign[0].userId;
+      return res.status(201).json({ userId });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
 //
   /**
    * @TODO Let's leave this as a place holder for now
