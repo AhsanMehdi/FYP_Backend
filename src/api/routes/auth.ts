@@ -62,7 +62,24 @@ export default (app: Router) => {
     },
   );
 
+  route.get(
+    '/id/:id',
+    async (req: Request, res: Response, next: NextFunction) => {
+      const logger:Logger = Container.get('logger');
+      logger.debug('Calling Donor endpoint with body: %o', req.body );
+      try {
 
+        var id = req.params.id;
+        const authServiceInstance = Container.get(AuthService);
+        const { user} = await authServiceInstance.GetUserTypeByuserId(id);
+        var usertype = user[0].userType;
+        return res.status(201).json({ usertype });
+      } catch (e) {
+        logger.error('🔥 error: %o', e);
+        return next(e);
+      }
+    },
+  );
   route.post('/logout', middlewares.isAuth, (req: Request, res: Response, next: NextFunction) => {
     const logger:Logger = Container.get('logger');
     logger.debug('Calling Sign-Out endpoint with body: %o', req.body);
