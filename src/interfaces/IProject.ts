@@ -19,6 +19,7 @@ export interface IProject {
     //visibleDonors: string;
     imageUrl: string ;
     userId: string; // for user authentication
+    rating: number; // this is responsible for the rating of the ngo
     
   }
    /* this is only to get input and map into the database*/
@@ -33,4 +34,5 @@ export interface IProject {
     registerationNumber: string;
     imageUrl: string ;
     userId: string;
+    rating: number;
   }

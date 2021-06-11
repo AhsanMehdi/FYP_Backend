@@ -24,6 +24,7 @@ export default (app: Router) => {
         tittle: Joi.string().required(),
         projectType: Joi.string().required(),
         estimatedBudget:Joi.number().required(),
+        rating:Joi.number().required(),
         //totalDonation: Joi.number().required(),
         //collectedDonation: Joi.number().required(),
         descriptionStory: Joi.string().required(),
