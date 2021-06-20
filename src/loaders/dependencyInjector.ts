@@ -3,6 +3,7 @@ import LoggerInstance from './logger';
 import agendaFactory from './agenda';
 import config from '../config';
 import mailgun from 'mailgun-js';
+import axios  from 'axios';
 
 export default ({ mongoConnection, models }: { mongoConnection; models: { name: string; model: any }[] }) => {
   try {
@@ -11,7 +12,7 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
     });
 
     const agendaInstance = agendaFactory({ mongoConnection });
-
+    Container.set('axios', axios);
     Container.set('agendaInstance', agendaInstance);
     Container.set('logger', LoggerInstance);
     Container.set('emailClient', mailgun({ apiKey: config.emails.apiKey, domain: config.emails.domain }));
