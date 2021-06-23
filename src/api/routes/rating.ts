@@ -26,7 +26,7 @@ export default (app: Router) => {
        
         const reviewProjectServiceInstance = Container.get(ReviewProjectService);
         const  reviewProject = await reviewProjectServiceInstance.GetCommentsOfSpecificProject(id);
-
+        //console.log("total comments are"+reviewProject.reviewProject)
         const ratingServiceInstance = Container.get(RatingService);
         const { rating} = await ratingServiceInstance.getRating(reviewProject.reviewProject);
         return res.status(201).json(rating);
@@ -51,19 +51,23 @@ export default (app: Router) => {
         let x = 0 ;
         x = project.length;
         console.log (" total project are " + x)
+        console.log ("one by one project"+project)
         ///
         var reviewProject: IReviewProject[];
         for (let i = 0; i < x; i++) {
           const reviewProjectServiceInstance = Container.get(ReviewProjectService);
           var ireviewProject = await reviewProjectServiceInstance.GetCommentsOfSpecificProject(project[i]._id);
-          reviewProject =    reviewProject.concat(ireviewProject.reviewProject)
+         
+         console.log ("value   "+ ireviewProject[i]) // reviewProject =    reviewProject.concat(ireviewProject.reviewProject)
+        // reviewProject = $.extend (reviewProject, ireviewProject.reviewProject)
+        // reviewProject = Object.assign (reviewProject, ireviewProject.reviewProject)
         }
         // const reviewProjectServiceInstance = Container.get(ReviewProjectService);
         // const  reviewProject = await reviewProjectServiceInstance.GetCommentsOfSpecificProject(id);
 
         const ratingServiceInstance = Container.get(RatingService);
         const { rating} = await ratingServiceInstance.getRating(reviewProject);
-        return res.status(201).json(rating);
+        //return res.status(201).json(rating);
       } catch (e) {
         logger.error('🔥 error: %o', e);
         return next(e);

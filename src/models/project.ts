@@ -28,11 +28,7 @@ const Project = new mongoose.Schema(
         required: [true, 'Please enter a nick name name'],
         index: true,
     },
-    rating: {
-        type: Number,
-        required: [true, 'provide a rating'],
-        index: true,
-    },
+
     // totalDonation: {
     //     type: Number,
     //     required: [true, 'Please enter a nick name name'],
