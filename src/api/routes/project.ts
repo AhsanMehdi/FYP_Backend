@@ -12,8 +12,6 @@ const route = Router();
 export default (app: Router) => {
   app.use('/project', route);
 
-
-
   // custom API to create project
   route.post(
     '/',  /* the sub path of */
@@ -24,19 +22,11 @@ export default (app: Router) => {
         tittle: Joi.string().required(),
         projectType: Joi.string().required(),
         estimatedBudget:Joi.number().required(),
-       
-        //totalDonation: Joi.number().required(),
-        //collectedDonation: Joi.number().required(),
         descriptionStory: Joi.string().required(),
         objective: Joi.string().required(),
         country: Joi.string().required(),
-        //expectedEndDate: Joi.string().required(),
-        //visibility: Joi.string().required(),
-        //currentExpenses: Joi.number().required(),
         startDate: Joi.string().required(),
         registerationNumber: Joi.string().required(),
-        //totalDonors: Joi.number().required(),
-        //visibleDonors: Joi.string().required(),
        imageUrl: Joi.string().required() 
       }),
     }),

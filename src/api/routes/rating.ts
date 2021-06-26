@@ -54,10 +54,11 @@ export default (app: Router) => {
         console.log ("one by one project"+project)
         ///
         var reviewProject: IReviewProject[];
+        const reviewProjectServiceInstance = Container.get(ReviewProjectService);
         for (let i = 0; i < x; i++) {
-          const reviewProjectServiceInstance = Container.get(ReviewProjectService);
-          var ireviewProject = await reviewProjectServiceInstance.GetCommentsOfSpecificProject(project[i]._id);
          
+          reviewProject = await reviewProjectServiceInstance.GetCommentsOfSpecificProject(project[i]._id);
+         console.log("id is"+project[i]._id)
          console.log ("value   "+ ireviewProject[i]) // reviewProject =    reviewProject.concat(ireviewProject.reviewProject)
         // reviewProject = $.extend (reviewProject, ireviewProject.reviewProject)
         // reviewProject = Object.assign (reviewProject, ireviewProject.reviewProject)

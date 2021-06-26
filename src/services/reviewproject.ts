@@ -64,6 +64,7 @@ export default class ReviewProjectService {
       }
 
       const reviewProject = reviewProjectRecord;
+      console.log ("in service " + reviewProject)
       return { reviewProject };
     } catch (e) {
       this.logger.error(e);
