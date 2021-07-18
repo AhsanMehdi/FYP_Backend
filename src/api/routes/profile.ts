@@ -192,7 +192,7 @@ export default (app: Router) => {
 // update ngo profile
 route.put(
   '/ngo',
- // middlewares.isAuth, middlewares.attachCurrentUser,
+  middlewares.isAuth, middlewares.attachCurrentUser,
   celebrate({
     body: Joi.object({
 
