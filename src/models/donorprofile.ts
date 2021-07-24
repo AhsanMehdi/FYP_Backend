@@ -99,7 +99,11 @@ const DonorProfile = new mongoose.Schema(
       index: true,
     },
 
-
+    imageUrl: {
+      type: String,
+      required: true, 
+      index: true,
+  },
     userId:{
       type: String,
       required: true, 

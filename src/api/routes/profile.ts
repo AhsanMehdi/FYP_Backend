@@ -253,7 +253,8 @@ route.post(
       domainOrphanage: Joi.boolean().required(),
       domainEnvironment: Joi.boolean().required(),
       domainSocialWelfare: Joi.boolean().required(),
-      domainOther: Joi.boolean().required()
+      domainOther: Joi.boolean().required(),
+      imageUrl: Joi.boolean().required()
 
 
     }),
