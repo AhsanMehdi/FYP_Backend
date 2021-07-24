@@ -12,6 +12,7 @@ export interface INgoProfile {
     domainSocialWelfare: boolean;
     domainOther: boolean;
     userId: string; // only for user authentication
+    imageUrl: string;
     
   }
    /* this is only to get input and map into the database*/
@@ -25,6 +26,7 @@ export interface INgoProfile {
     domainEnvironment: boolean;
     domainSocialWelfare: boolean;
     domainOther: boolean;
+    imageUrl: string;
     userId: string; // only for user authentication
  
   }

@@ -36,10 +36,10 @@ export default (app: Router) => {
         domainOrphanage: Joi.boolean().required(),
         domainEnvironment: Joi.boolean().required(),
         domainSocialWelfare: Joi.boolean().required(),
-        domainOther: Joi.boolean().required()
+        domainOther: Joi.boolean().required(),
         // _id : Joi.string().optional()
 
-        // imageUrl: Joi.string()
+        imageUrl: Joi.string().required()
       }),
     }),
     /* responsible to get values*/

@@ -12,6 +12,8 @@ import Logger from './loaders/logger';
 
 async function startServer() {
   const app = express();
+  app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 
   /**
    * A little hack here

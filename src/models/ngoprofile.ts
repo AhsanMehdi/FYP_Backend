@@ -99,11 +99,11 @@ const NgoProfile = new mongoose.Schema(
     //     index: true,
     // },
 
-    // registerationNumber: {
-    //     type: String,
-    //     required: true, 
-    //     index: true,
-    // },
+    imageUrl: {
+        type: String,
+        required: true, 
+        index: true,
+    },
     userId:{
       type: String,
       required: true, 
