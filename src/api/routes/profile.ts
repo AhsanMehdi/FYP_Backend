@@ -254,7 +254,7 @@ route.post(
       domainEnvironment: Joi.boolean().required(),
       domainSocialWelfare: Joi.boolean().required(),
       domainOther: Joi.boolean().required(),
-      imageUrl: Joi.boolean().required()
+     // imageUrl: Joi.boolean().required()
 
 
     }),
