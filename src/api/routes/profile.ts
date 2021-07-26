@@ -275,6 +275,32 @@ route.post(
   },
 );
 
+// api in which user send the ngoid then get the ngouserID
+route.get(
+  '/NGOO/:id',
+  async (req: Request, res: Response, next: NextFunction) => {
+    const logger:Logger = Container.get('logger');
+    logger.debug('Calling Project endpoint with body: %o', req.body );
+    try {
+
+      var id = req.params.id;
+      const profileServiceInstance = Container.get(ProfileService);
+      const { ngo} = await profileServiceInstance.GetUserIdByNgoId(id);
+      console.log("Sending ID"+id);
+//      const projectServiceInstance = Container.get(ProjectService);
+//      const { project} = await projectServiceInstance.GetProjectOwnerId(id);
+      var userId = ngo[0].userId;
+//      var userId = project[0].userId;
+      console.log("Receving ID"+userId);
+      return res.status(201).json({ userId });
+    } catch (e) {
+      logger.error('🔥 error: %o', e);
+      return next(e);
+    }
+  },
+);
+
+
 route.put (
   '/donor',
   middlewares.isAuth, middlewares.attachCurrentUser,
